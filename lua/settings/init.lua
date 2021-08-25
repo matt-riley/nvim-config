@@ -1,6 +1,8 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+local data_dir = vim.fn.stdpath("data")
+
 local M = {}
 
 M.defaults = function()
@@ -14,7 +16,9 @@ M.defaults = function()
 
 	opt.background = "dark"
 	opt.backspace = "indent,eol,start"
-	opt.backup = false
+	opt.backup = true
+	opt.backupcopy = "auto"
+	opt.backupdir = data_dir .. "/backups"
 	opt.breakindent = true
 	opt.clipboard = "unnamedplus"
 	opt.cursorline = true
@@ -38,6 +42,7 @@ M.defaults = function()
 	opt.termguicolors = true
 	opt.title = true
 	opt.undofile = true
+	opt.undodir = data_dir .. "/undo"
 	opt.updatetime = 100
 	opt.viewoptions = "folds,cursor"
 	opt.visualbell = true
