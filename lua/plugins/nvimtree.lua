@@ -61,10 +61,10 @@ M.toggle_tree = function()
 end
 
 M.keymaps = {
-    ["<leader>e"] = {
-      ":NvimTreeToggle<CR>",
-      "NvimTree Toggle",
-    },
-  }
+	["<leader>e"] = {
+		":lua require('plugins.nvimtree').toggle_tree()<CR>",
+		"NvimTree Toggle",
+	},
+}
 
 return M
