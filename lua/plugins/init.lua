@@ -42,6 +42,7 @@ M.load_plugins = function()
 	use("nvim-lua/plenary.nvim") -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 	use("nvim-lua/popup.nvim") -- [WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
 	use("folke/lua-dev.nvim") -- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+	use("kyazdani42/nvim-web-devicons") -- lua `fork` of vim-web-devicons for neovim
 	use({
 		"kyazdani42/nvim-tree.lua", -- A file explorer tree for neovim written in lua
 		config = require("plugins.nvimtree").config(),
@@ -132,6 +133,12 @@ M.load_plugins = function()
 		"hoob3rt/lualine.nvim", -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = require("plugins.lualine").config(),
+	})
+
+	-- Others
+	use({
+		"ellisonleao/glow.nvim",
+		run = "GlowInstall",
 	})
 
 	-- WakaTime
