@@ -68,6 +68,7 @@ M.config = function()
 		-- Extensions
 		telescope.load_extension("fzy_native")
 		telescope.load_extension("zoxide")
+		telescope.load_extension("projects")
 	end
 end
 

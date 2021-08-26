@@ -6,7 +6,7 @@ M.config = function()
 	g.loaded_netrw = 1
 	g.loaded_netrwPlugin = 1
 
-	g.nvim_tree_auto_open = 1
+	g.nvim_tree_auto_open = 0
 	g.nvim_tree_auto_close = 1
 	g.nvim_tree_quit_on_open = 1
 	g.nvim_tree_side = "right"

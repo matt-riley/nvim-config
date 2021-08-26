@@ -35,6 +35,9 @@ M.config = function()
 			component_separators = { "", "" },
 			section_separators = { "", "" },
 		},
+		disabled_filetypes = {
+			"dashboard",
+		},
 		extensions = { "nvim-tree" },
 		sections = {
 			lualine_c = {
