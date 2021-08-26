@@ -137,8 +137,27 @@ M.load_plugins = function()
 
 	-- Others
 	use({
-		"ellisonleao/glow.nvim",
+		"ellisonleao/glow.nvim", -- A markdown preview directly in your neovim.
 		run = "GlowInstall",
+	})
+
+	use({
+		"glepnir/dashboard-nvim", -- vim dashboard
+		config = require("plugins.dashboard").config(),
+	})
+
+	use({
+		"vuki656/package-info.nvim", -- See latest package versions in your package.json
+		config = require("plugins.package-info").config(),
+	})
+
+	use({
+		"ahmedkhalf/project.nvim", -- The superior project management solution for neovim.
+		config = require("plugins.project").config(),
+	})
+
+	use({
+		"jghauser/mkdir.nvim", -- This neovim plugin creates missing folders on save.
 	})
 
 	-- WakaTime

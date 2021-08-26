@@ -10,6 +10,7 @@ M.config = function()
 		char = "│",
 		use_treesitter = true,
 		show_current_context = true,
+		filetype_exclude = { "dashboard" },
 	})
 end
 
