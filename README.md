@@ -1,9 +1,18 @@
 # Neovim Config
 
+![screenshot](./imgs/neovim.png)
+
+## Requirements
+
+* [neovim](https://github.com/neovim/neovim) >= 0.5
+
+
+## Plugins
 <details>
   <summary>
-    Plugins Used
+    List
   </summary>
+  <br />
   <table>
     <thead>
       <tr>
@@ -162,10 +171,6 @@
       <tr>
         <td><a href="https://github.com/hoob3rt/lualine.nvim">hoob3rt/lualine.nvim</a></td>
         <td>A blazing fast and easy to configure neovim statusline plugin written in pure lua.</td>
-      </tr>
-      <tr>
-        <td><a href="https://github.com/ellisonleao/glow.nvim">ellisonleao/glow.nvim</a></td>
-        <td>A markdown preview directly in your neovim.</td>
       </tr>
       <tr>
         <td><a href="https://github.com/glepnir/dashboard-nvim">glepnir/dashboard-nvim</a></td>
