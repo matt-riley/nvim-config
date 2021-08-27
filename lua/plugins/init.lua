@@ -137,11 +137,6 @@ M.load_plugins = function()
 
 	-- Others
 	use({
-		"ellisonleao/glow.nvim", -- A markdown preview directly in your neovim.
-		run = "GlowInstall",
-	})
-
-	use({
 		"glepnir/dashboard-nvim", -- vim dashboard
 		config = require("plugins.dashboard").config(),
 	})

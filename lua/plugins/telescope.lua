@@ -67,8 +67,8 @@ M.config = function()
 
 		-- Extensions
 		telescope.load_extension("fzy_native")
-		telescope.load_extension("zoxide")
 		telescope.load_extension("projects")
+		telescope.load_extension("zoxide")
 	end
 end
 
@@ -79,8 +79,9 @@ M.keymaps = {
 		f = { "<BS><cmd>Telescope find_files<cr>", "Files" },
 		g = { "<BS><cmd>Telescope live_grep<cr>", "Grep" },
 		h = { "<BS><cmd>Telescope help_tags<cr>", "Help tags" },
-		m = { ":lua require('telescope').extensions.media_files.media_files()<cr>', 'Media files" },
-		z = { ":lua require('telescope').extensions.zoxide.list()<cr>", "Z" },
+		p = { "<BS><cmd>Telescope projects<cr>", "Projects" },
+		m = { ":lua require('telescope').extensions.media_files.media_files()<cr>", "Media files" },
+		z = { ":lua require('telescope').extensions.zoxide.list{}<cr>", "Z" },
 	},
 }
 
