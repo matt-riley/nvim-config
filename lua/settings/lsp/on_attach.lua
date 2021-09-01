@@ -5,6 +5,15 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
+
+	if client.name == "typescript" then
+		local has_ts_utils, ts_utils = require("nvim-lsp-ts-utils")
+		if has_ts_utils then
+			ts_utils.setup({})
+			ts_utils.setup_client(client)
+		end
+	end
+
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 	local has_signature, signature = pcall(require, "lsp_signature")

@@ -196,6 +196,11 @@
         <td><a href="https://github.com/folke/tokyonight.nvim">folke/tokyonight.nvim</a></td>
         <td>A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins.</td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils">jose-elias-alvarez/nvim-lsp-ts-utils</a>
+        </td>
+        <td>Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.</td>
+      </tr>
     </tbody>
   </table>
 </details>

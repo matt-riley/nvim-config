@@ -84,6 +84,7 @@ M.load_plugins = function()
 		requires = "kyazdani42/nvim-web-devicons",
 		config = require("plugins.trouble").config(),
 	})
+	use({ "jose-elias-alvarez/nvim-lsp-ts-utils" }) -- Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.
 
 	-- Telescope
 	use({
