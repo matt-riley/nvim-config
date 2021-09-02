@@ -73,6 +73,9 @@ local function setup_completion()
 		},
 		sources = {
 			{ name = "nvim_lsp" },
+			{ name = "path" },
+			{ name = "buffer" },
+			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 		},
 	})
