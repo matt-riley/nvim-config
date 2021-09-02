@@ -21,6 +21,7 @@ M.defaults = function()
 	opt.backupdir = data_dir .. "/backups"
 	opt.breakindent = true
 	opt.clipboard = "unnamedplus"
+	opt.completeopt = "menuone,noinsert,noselect"
 	opt.cursorline = true
 	opt.encoding = "UTF-8"
 	opt.expandtab = true

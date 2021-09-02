@@ -7,7 +7,19 @@ M.config = function()
 	end
 
 	treesitter.setup({
-		autotag = { enable = true },
+		autotag = {
+			enable = true,
+			filetypes = {
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescriptreact",
+				"svelte",
+				"vue",
+				"astro",
+				"markdown",
+			},
+		},
 
 		context_commentstring = { enable = true },
 

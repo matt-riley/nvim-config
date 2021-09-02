@@ -44,25 +44,9 @@ M.config = function()
 	}
 end
 
-local view = require("nvim-tree.view")
-
-M.toggle_tree = function()
-	if view.win_open() then
-		require("nvim-tree").close()
-		if package.loaded["bufferline.state"] then
-			require("bufferline.state").set_offset(0)
-		end
-	else
-		if package.loaded["bufferline.state"] then
-			require("bufferline.state").set_offset(31, "File Explorer")
-		end
-		require("nvim-tree").find_file(true)
-	end
-end
-
 M.keymaps = {
 	["<leader>e"] = {
-		":lua require('plugins.nvimtree').toggle_tree()<CR>",
+		":NvimTreeToggle<CR>",
 		"NvimTree Toggle",
 	},
 }

@@ -59,13 +59,14 @@ M.load_plugins = function()
 		requires = "neovim/nvim-lspconfig",
 	})
 	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+	use("hrsh7th/cmp-path") -- nvim-cmp source for path
+	use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
+	use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
 	use({
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-		requires = "hrsh7th/nvim-cmp",
 	})
 	use({
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-		requires = "L3MON4D3/LuaSnip",
 	})
 	use("L3MON4D3/LuaSnip") -- Snippets Plugin
 	--	use({

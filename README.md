@@ -201,6 +201,18 @@
         </td>
         <td>Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.</td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/hrsh7th/cmp-path">hrsh7th/cmp-path</a></td>
+        <td>nvim-cmp source for path</td>
+      </tr>
+      <tr>
+        <td><a href='https://github.com/hrsh7th/cmp-buffer'>hrsh7th/cmp-buffer</a></td>
+        <td>nvim-cmp source for buffer words</td>
+      </tr>
+      <tr>
+        <td><a href='https://github.com/hrsh7th/cmp-nvim-lua'>hrsh7th/cmp-nvim-lua</a></td>
+        <td>nvim-cmp source for nvim lua</td>
+      </tr>
     </tbody>
   </table>
 </details>
