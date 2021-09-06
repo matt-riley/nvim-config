@@ -50,10 +50,7 @@ M.defaults = function()
 	opt.wildmenu = true
 	opt.writebackup = true
 
-	local has_lsp, lsp = pcall(require, "settings.lsp")
-	if has_lsp then
-		lsp.load_config()
-	end
+	vim.cmd([[colorscheme tokyonight]])
 
 	--  Return to the same position in the file when reopening
 	cmd(

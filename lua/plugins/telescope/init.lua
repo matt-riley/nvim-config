@@ -47,9 +47,11 @@ M.config = function()
 			grep_previewer = require("telescope.previewers").vimgrep.new,
 			qflist_previewer = require("telescope.previewers").qflist.new,
 			extensions = {
-				fzy_native = {
-					override_generic_sorter = true,
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = false,
 					override_file_sorter = true,
+					case_mode = "smart_case",
 				},
 				media_files = {
 					filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf" },
@@ -66,9 +68,9 @@ M.config = function()
 		})
 
 		-- Extensions
-		telescope.load_extension("fzy_native")
-		telescope.load_extension("projects")
-		telescope.load_extension("zoxide")
+		pcall(require("telescope").load_extension, "fzf")
+		pcall(require("telescope").load_extension, "projects")
+		pcall(require("telescope").load_extension, "zoxide")
 	end
 end
 
@@ -79,8 +81,8 @@ M.keymaps = {
 		f = { "<BS><cmd>Telescope find_files<cr>", "Files" },
 		g = { "<BS><cmd>Telescope live_grep<cr>", "Grep" },
 		h = { "<BS><cmd>Telescope help_tags<cr>", "Help tags" },
-		p = { "<BS><cmd>Telescope projects<cr>", "Projects" },
 		m = { ":lua require('telescope').extensions.media_files.media_files()<cr>", "Media files" },
+		p = { "<BS><cmd>Telescope projects<cr>", "Projects" },
 		z = { ":lua require('telescope').extensions.zoxide.list{}<cr>", "Z" },
 	},
 }

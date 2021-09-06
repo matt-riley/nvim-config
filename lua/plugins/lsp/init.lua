@@ -1,6 +1,6 @@
 local has_lspconfig, nvim_lsp = pcall(require, "lspconfig")
-local on_attach = require("settings.lsp.on_attach")
-local capabilities = require("settings.lsp.capabilities")
+local on_attach = require("plugins.lsp.on_attach")
+local capabilities = require("plugins.lsp.capabilities")
 local config = {
 	on_attach = on_attach,
 	capabilities = capabilities,

@@ -7,8 +7,6 @@ M.config = function()
 
 		g.tokyonight_style = "night"
 		g.tokyonight_italic_functions = 1
-
-		vim.cmd([[colorscheme tokyonight]])
 	end
 end
 
