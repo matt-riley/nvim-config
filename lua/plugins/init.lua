@@ -53,6 +53,23 @@ M.load_plugins = function()
 	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig", -- Quickstart configurations for the Nvim LSP client
+		config = require("plugins.lsp").load_config(),
+		requires = {
+			"kabouzeid/nvim-lspinstall",
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp",
+			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
+			"onsails/lspkind-nvim",
+			"glepnir/lspsaga.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+			"ray-x/lsp_signature.nvim",
+			"jose-elias-alvarez/nvim-lsp-ts-utils",
+			"folke/trouble.nvim",
+		},
 	})
 	use({
 		"kabouzeid/nvim-lspinstall", -- Install LSP Servers
@@ -69,11 +86,6 @@ M.load_plugins = function()
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
 	})
 	use("L3MON4D3/LuaSnip") -- Snippets Plugin
-	--	use({
-	--		"tzachar/cmp-tabnine", -- TabNine plugin for hrsh7th/nvim-cmp
-	--		requires = "hrsh7th/nvim-cmp",
-	--		run = "./install.sh",
-	--	})
 
 	use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
 
@@ -93,7 +105,8 @@ M.load_plugins = function()
 		config = require("plugins.telescope").config(),
 	})
 	use({
-		"nvim-telescope/telescope-fzy-native.nvim", -- FZY style sorter that is compiled_loader
+		"nvim-telescope/telescope-fzf-native.nvim", -- FZF sorter for telescope written in c
+		run = "make",
 	})
 	use({
 		"nvim-telescope/telescope-media-files.nvim", -- Telescope extension to preview media files using Ueberzug.

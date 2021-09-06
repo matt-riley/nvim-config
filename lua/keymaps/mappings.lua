@@ -1,5 +1,5 @@
 local gitsigns_mappings = require("plugins.gitsigns").keymaps
-local lsp_mappings = require("settings.lsp.mappings")
+local lsp_mappings = require("plugins.lsp.mappings")
 local nvimtree_mappings = require("plugins.nvimtree").keymaps
 local package_info = require("plugins.package-info").keymaps
 local telescope_mappings = require("plugins.telescope").keymaps

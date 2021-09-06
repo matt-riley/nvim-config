@@ -107,9 +107,9 @@
       </tr>
       <tr>
         <td><a
-            href="https://github.com/nvim-telescope/telescope-fzy-native.nvim">nvim-telescope/telescope-fzy-native.nvim</a>
+            href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">nvim-telescope/telescope-fzf-native.nvim</a>
         </td>
-        <td>FZY style sorter that is compiled loader</td>
+        <td>FZF sorter for telescope written in c</td>
       </tr>
       <tr>
         <td><a
