@@ -29,6 +29,14 @@ M.config = function()
 		return
 	end
 
+	vim.cmd([[
+    augroup HideLuaLine
+    au FileType alpha set noshowmode | au WinLeave <buffer> set showmode
+    au FileType alpha set noruler | au WinLeave <buffer> set ruler
+    au FileType alpha set laststatus=0 | au WinLeave <buffer> set laststatus=2
+    au FileType alpha set noshowcmd | au WinLeave <buffer> set showcmd
+  augroup end
+  ]])
 	lualine.setup({
 		options = {
 			theme = "tokyonight",
@@ -36,7 +44,7 @@ M.config = function()
 			section_separators = { "", "" },
 		},
 		disabled_filetypes = {
-			"dashboard",
+			"alpha",
 		},
 		extensions = { "nvim-tree" },
 		sections = {

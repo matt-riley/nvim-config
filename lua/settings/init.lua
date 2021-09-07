@@ -50,12 +50,10 @@ M.defaults = function()
 	opt.wildmenu = true
 	opt.writebackup = true
 
-	vim.cmd([[colorscheme tokyonight]])
-
 	--  Return to the same position in the file when reopening
-	cmd(
-		[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
-	)
+	cmd([[
+    autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
+    ]])
 end
 
 return M

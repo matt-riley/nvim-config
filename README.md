@@ -173,8 +173,8 @@
         <td>A blazing fast and easy to configure neovim statusline plugin written in pure lua.</td>
       </tr>
       <tr>
-        <td><a href="https://github.com/glepnir/dashboard-nvim">glepnir/dashboard-nvim</a></td>
-        <td>vim dashboard</td>
+        <td><a href="https://github.com/goolord/alpha-nvim">goolord/alpha-nvim</a></td>
+        <td>a lua powered greeter like vim-startify / dashboard-nvim</td>
       </tr>
       <tr>
         <td><a href="https://github.com/vuki656/package-info.nvim">vuki656/package-info.nvim</a></td>
