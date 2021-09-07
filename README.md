@@ -217,6 +217,10 @@
         <td><a href='https://github.com/norcalli/nvim-colorizer.lua'>norcalli/nvim-colorizer.lua</a></td>
         <td>The fastest Neovim colorizer.</td>
       </tr>
+      <tr>
+        <td><a href='https://github.com/sunjon/Shade.nvim'>sunjon/Shade.nvim</a></td>
+        <td>An Nvim lua plugin that dims your inactive windows</td>
+      </tr>
     </tbody>
   </table>
 </details>
