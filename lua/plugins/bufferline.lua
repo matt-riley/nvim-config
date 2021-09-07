@@ -6,6 +6,10 @@ M.config = function()
 		return
 	end
 
+	vim.cmd([[
+    autocmd FileType alpha set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
+  ]])
+
 	bufferline.setup({
 		options = {
 			numbers = "buffer_id",

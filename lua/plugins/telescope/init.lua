@@ -83,6 +83,7 @@ M.keymaps = {
 		h = { "<BS><cmd>Telescope help_tags<cr>", "Help tags" },
 		m = { ":lua require('telescope').extensions.media_files.media_files()<cr>", "Media files" },
 		p = { "<BS><cmd>Telescope projects<cr>", "Projects" },
+		r = { "<BS><cmd>Telescope oldfiles<cr>", "Recent Files" },
 		z = { ":lua require('telescope').extensions.zoxide.list{}<cr>", "Z" },
 	},
 }

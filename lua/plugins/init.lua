@@ -152,9 +152,13 @@ M.load_plugins = function()
 
 	-- Others
 	use({
-		"glepnir/dashboard-nvim", -- vim dashboard
-		config = require("plugins.dashboard").config(),
+		"goolord/alpha-nvim",
+		config = require("plugins.alpha").config(),
 	})
+	-- use({
+	-- 	"glepnir/dashboard-nvim", -- vim dashboard
+	-- 	config = require("plugins.dashboard").config(),
+	-- })
 
 	use({
 		"vuki656/package-info.nvim", -- See latest package versions in your package.json
