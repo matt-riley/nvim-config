@@ -155,6 +155,11 @@ M.load_plugins = function()
 		config = require("plugins.colorizer").config(),
 	})
 
+	use({
+		"sunjon/Shade.nvim",
+		config = require("plugins.shade").config(),
+	})
+
 	-- Others
 	use({
 		"goolord/alpha-nvim",
