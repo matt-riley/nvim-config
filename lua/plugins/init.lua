@@ -146,8 +146,13 @@ M.load_plugins = function()
 	})
 	use({
 		"hoob3rt/lualine.nvim", -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = require("plugins.lualine").config(),
+	})
+
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = require("plugins.colorizer").config(),
 	})
 
 	-- Others
@@ -155,10 +160,6 @@ M.load_plugins = function()
 		"goolord/alpha-nvim",
 		config = require("plugins.alpha").config(),
 	})
-	-- use({
-	-- 	"glepnir/dashboard-nvim", -- vim dashboard
-	-- 	config = require("plugins.dashboard").config(),
-	-- })
 
 	use({
 		"vuki656/package-info.nvim", -- See latest package versions in your package.json

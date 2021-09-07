@@ -213,6 +213,10 @@
         <td><a href='https://github.com/hrsh7th/cmp-nvim-lua'>hrsh7th/cmp-nvim-lua</a></td>
         <td>nvim-cmp source for nvim lua</td>
       </tr>
+      <tr>
+        <td><a href='https://github.com/norcalli/nvim-colorizer.lua'>norcalli/nvim-colorizer.lua</a></td>
+        <td>The fastest Neovim colorizer.</td>
+      </tr>
     </tbody>
   </table>
 </details>
