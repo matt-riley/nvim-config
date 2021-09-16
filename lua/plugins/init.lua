@@ -160,6 +160,11 @@ M.load_plugins = function()
 		config = require("plugins.shade").config(),
 	})
 
+	use({
+		"beauwilliams/focus.nvim", -- Auto-Focusing and Auto-Resizing Splits/Windows for Neovim written in Lua! Vim splits on steroids.
+		config = require("plugins.focus").config(),
+	})
+
 	-- Others
 	use({
 		"goolord/alpha-nvim",
@@ -168,6 +173,7 @@ M.load_plugins = function()
 
 	use({
 		"vuki656/package-info.nvim", -- See latest package versions in your package.json
+		requires = { "MunifTanjim/nui.nvim" },
 		config = require("plugins.package-info").config(),
 	})
 
@@ -180,7 +186,11 @@ M.load_plugins = function()
 		"jghauser/mkdir.nvim", -- This neovim plugin creates missing folders on save.
 	})
 
-	-- WakaTime
+	use({
+		"kevinhwang91/nvim-hlslens", -- Hlsearch Lens for Neovim
+		config = require("plugins.hlslens").config(),
+	})
+
 	use({ "wakatime/vim-wakatime" }) -- Vim plugin for automatic time tracking and metrics generated from your programming activity.
 
 	--  theme

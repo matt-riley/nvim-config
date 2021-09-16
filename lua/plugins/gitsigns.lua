@@ -57,7 +57,6 @@ M.config = function()
 			row = 0,
 			col = 1,
 		},
-		use_internal_diff = true, -- If vim.diff or luajit is present
 		yadm = {
 			enable = false,
 		},

@@ -1,3 +1,5 @@
+local colorizer_mappings = require("plugins.colorizer").keymaps
+local focus_mappings = require("plugins.focus").keymaps
 local gitsigns_mappings = require("plugins.gitsigns").keymaps
 local lsp_mappings = require("plugins.lsp.mappings")
 local nvimtree_mappings = require("plugins.nvimtree").keymaps
@@ -5,7 +7,7 @@ local package_info = require("plugins.package-info").keymaps
 local telescope_mappings = require("plugins.telescope").keymaps
 local trouble_mappings = require("plugins.trouble").keymaps
 local ts_lsp_mappings = require("plugins.lsp-ts-utils").keymaps
-local colorizer_mappings = require("plugins.colorizer").keymaps
+local hlslens_mappings = require("plugins.hlslens").keymaps
 
 local extend_table = vim.tbl_deep_extend
 local has_notify, notify = pcall(require, "notify")
@@ -14,7 +16,9 @@ local has_mappings, wk_mappings = pcall(
 	extend_table,
 	"error",
 	colorizer_mappings,
+	focus_mappings,
 	gitsigns_mappings,
+	hlslens_mappings,
 	lsp_mappings,
 	nvimtree_mappings,
 	package_info,
