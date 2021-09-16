@@ -22,7 +22,7 @@ local function setup_servers()
 		local server_config = servers[server] or config
 		nvim_lsp[server].setup(server_config)
 	end
-
+	nvim_lsp["gopls"].setup(config)
 	local has_null, null = pcall(require, "null-ls")
 	if has_null then
 		local null_config = {
@@ -30,10 +30,13 @@ local function setup_servers()
 				-- diagnostics
 				null.builtins.diagnostics.eslint_d,
 				null.builtins.diagnostics.selene, -- A blazing-fast modern Lua linter written in Rust
+				null.builtins.diagnostics.hadolint, -- Dockerfile linter, validate inline bash, written in Haskell
 				-- formatting
 				null.builtins.formatting.stylua,
 				null.builtins.formatting.eslint_d,
 				null.builtins.formatting.terraform_fmt,
+				null.builtins.formatting.golines,
+				null.builtins.formatting.prettierd,
 			},
 		}
 		null.config(null_config)
@@ -58,6 +61,9 @@ local function setup_completion()
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
 			end,
+		},
+		completion = {
+			completeopt = "menu,menuone,noinsert",
 		},
 		mapping = {
 			["<C-p>"] = cmp.mapping.select_prev_item(),

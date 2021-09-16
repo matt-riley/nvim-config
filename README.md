@@ -4,10 +4,10 @@
 
 ## Requirements
 
-* [neovim](https://github.com/neovim/neovim) >= 0.5
-
+- [neovim](https://github.com/neovim/neovim) >= 0.5
 
 ## Plugins
+
 <details>
   <summary>
     List
@@ -220,6 +220,16 @@
       <tr>
         <td><a href='https://github.com/sunjon/Shade.nvim'>sunjon/Shade.nvim</a></td>
         <td>An Nvim lua plugin that dims your inactive windows</td>
+      </tr>
+      <tr>
+        <td><a href='https://github.com/beauwilliams/focus.nvim'>beauwilliams/focus.nvim</a></td>
+        <td>Auto-Focusing and Auto-Resizing Splits/Windows for Neovim written in Lua! Vim splits on steroids.</td>
+      </tr>
+      <tr>
+        <td><a
+            href="https://github.com/kevinhwang91/nvim-hlslens">kevinhwang91/nvim-hlslens</a>
+        </td>
+        <td>Hlsearch Lens for Neovim</td>
       </tr>
     </tbody>
   </table>
