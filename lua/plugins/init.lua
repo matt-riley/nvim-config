@@ -144,10 +144,16 @@ M.load_plugins = function()
 		requires = "kyazdani42/nvim-web-devicons",
 		config = require("plugins.bufferline").config(),
 	})
+	-- use({
+	-- 	"hoob3rt/lualine.nvim", -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+	-- 	requires = { "kyazdani42/nvim-web-devicons" },
+	-- 	config = require("plugins.lualine").config(),
+	-- })
+
 	use({
-		"hoob3rt/lualine.nvim", -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+		"famiu/feline.nvim", -- A minimal, stylish and customizable statusline for Neovim written in Lua
 		requires = { "kyazdani42/nvim-web-devicons" },
-		config = require("plugins.lualine").config(),
+		config = require("plugins.feline").config(),
 	})
 
 	use({

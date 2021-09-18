@@ -35,7 +35,9 @@ local function setup_servers()
 				null.builtins.formatting.stylua,
 				null.builtins.formatting.eslint_d,
 				null.builtins.formatting.terraform_fmt,
-				null.builtins.formatting.golines,
+				null.builtins.formatting.golines.with({
+					args = { "-m", "80", "--chain-split-dots", "-t", "2" },
+				}),
 				null.builtins.formatting.prettierd,
 			},
 		}
