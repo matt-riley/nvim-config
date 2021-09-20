@@ -12,6 +12,7 @@ M.config = function()
 		"typescript",
 		"html",
 		"svelte",
+		"scss",
 	})
 end
 
