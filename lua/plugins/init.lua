@@ -199,6 +199,10 @@ M.load_plugins = function()
 
 	use({ "wakatime/vim-wakatime" }) -- Vim plugin for automatic time tracking and metrics generated from your programming activity.
 
+	use({
+		"elkowar/yuck.vim",
+	})
+
 	--  theme
 	use({
 		"folke/tokyonight.nvim", -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins.
