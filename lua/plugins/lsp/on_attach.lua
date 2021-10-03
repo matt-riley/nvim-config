@@ -5,10 +5,6 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
-	if client.name == "gopls" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
 
 	if client.name == "typescript" then
 		local has_ts_utils, ts_utils = pcall(require, "nvim-lsp-ts-utils")
@@ -18,6 +14,16 @@ local on_attach = function(client, bufnr)
 			})
 			ts_utils.setup_client(client)
 		end
+	end
+
+	local remove_formatting = {
+		"gopls",
+		"html",
+		"terraform",
+		"typescript",
+	}
+
+	for _, _ in ipairs(remove_formatting) do
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
