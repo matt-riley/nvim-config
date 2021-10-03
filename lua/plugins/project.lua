@@ -21,11 +21,15 @@ M.config = function()
 
 		-- All the patterns used to detect root dir, when **"pattern"** is in
 		-- detection_methods
-		patterns = { ".git", "package.json" },
+		patterns = { ".git", "package.json", "=src" },
 
 		-- Table of lsp clients to ignore by name
 		-- eg: { "efm", ... }
 		ignore_lsp = { "null-ls" },
+
+		-- Don't calculate root dir on specific directories
+		-- Ex: { "~/.cargo/*", ... }
+		exclude_dirs = { "/" },
 
 		-- Show hidden files in telescope
 		show_hidden = false,
