@@ -1,4 +1,6 @@
 local has_lspconfig, nvim_lsp = pcall(require, "lspconfig")
+local util = require("lspconfig/util")
+
 local on_attach = require("plugins.lsp.on_attach")
 local capabilities = require("plugins.lsp.capabilities")
 local config = {
@@ -11,6 +13,11 @@ local config = {
 
 local servers = {
 	lua = require("lua-dev").setup(config),
+	metals = vim.tbl_deep_extend("force", {
+		filetypes = { "scala", "sbt" },
+		root_dir = util.root_pattern("build.sbt", "build.sc", ".git"),
+	}, config),
+	gopls = config,
 }
 
 local M = {}
@@ -22,7 +29,11 @@ local function setup_servers()
 		local server_config = servers[server] or config
 		nvim_lsp[server].setup(server_config)
 	end
-	nvim_lsp["gopls"].setup(config)
+
+	for i, v in pairs(servers) do
+		nvim_lsp[i].setup(v)
+	end
+
 	local has_null, null = pcall(require, "null-ls")
 	if has_null then
 		local null_config = {
@@ -39,6 +50,7 @@ local function setup_servers()
 					args = { "-m", "80", "--chain-split-dots", "-t", "2" },
 				}),
 				null.builtins.formatting.prettierd,
+				null.builtins.formatting.scalafmt,
 			},
 		}
 		null.config(null_config)
