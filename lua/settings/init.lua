@@ -14,42 +14,51 @@ M.defaults = function()
 
 	cmd("filetype plugin on")
 
-	opt.background = "dark"
-	opt.backspace = "indent,eol,start"
-	opt.backup = true
-	opt.backupcopy = "auto"
-	opt.backupdir = data_dir .. "/backups"
-	opt.breakindent = true
-	opt.clipboard = "unnamedplus"
-	opt.completeopt = "menu,menuone,noinsert,noselect"
-	opt.cursorline = true
-	opt.encoding = "UTF-8"
-	opt.expandtab = true
-	opt.foldlevelstart = 1
-	opt.foldmethod = "syntax"
-	opt.hidden = true
-	opt.history = 10000
-	opt.lazyredraw = true
-	opt.mouse = "a"
-	opt.number = true
-	opt.relativenumber = true
-	opt.scrolloff = 5
-	opt.sessionoptions = "folds"
-	opt.shiftwidth = 2
-	opt.showmatch = true
-	opt.signcolumn = "yes"
-	opt.softtabstop = 2
-	opt.splitbelow = true
-	opt.tabstop = 2
-	opt.termguicolors = true
-	opt.title = true
-	opt.undofile = true
-	opt.undodir = data_dir .. "/undo"
-	opt.updatetime = 100
-	opt.viewoptions = "folds,cursor"
-	opt.visualbell = true
-	opt.wildmenu = true
-	opt.writebackup = true
+	local globals = {
+		background = "dark",
+		backspace = "indent,eol,start",
+		backup = true,
+		backupcopy = "auto",
+		backupdir = data_dir .. "/backups",
+		breakindent = true,
+		clipboard = "unnamedplus",
+		completeopt = "menu,menuone,noinsert,noselect",
+		cursorline = true,
+		encoding = "UTF-8",
+		expandtab = true,
+		foldlevelstart = 1,
+		foldmethod = "syntax",
+		hidden = true,
+		history = 10000,
+		lazyredraw = true,
+		magic = true,
+		mouse = "a",
+		number = true,
+		relativenumber = true,
+		scrolloff = 8,
+		sessionoptions = "folds",
+		shiftwidth = 2,
+		showmatch = true,
+		signcolumn = "yes",
+		softtabstop = 2,
+		splitbelow = true,
+		tabstop = 2,
+		termguicolors = true,
+		title = true,
+		undofile = true,
+		undodir = data_dir .. "/undo",
+		updatetime = 100,
+		viewoptions = "folds,cursor",
+		visualbell = true,
+		wildmenu = true,
+		writebackup = true,
+	}
+
+	for name, value in pairs(globals) do
+		opt[name] = value
+	end
+
+	vim.opt_global.shortmess:remove("F") -- NOTE: Without doing this, autocommands that deal with filetypes prohibit messages from being shown
 
 	--  Return to the same position in the file when reopening
 	cmd([[

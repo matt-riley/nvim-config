@@ -5,7 +5,7 @@ M.config = function()
 	if has_tokyonight then
 		local g = vim.g
 
-		g.tokyonight_style = "night"
+		g.tokyonight_style = "storm"
 		g.tokyonight_italic_functions = 1
 
 		vim.cmd([[colorscheme tokyonight]])

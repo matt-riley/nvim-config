@@ -40,7 +40,7 @@ local lsp_mappings = {
 		"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
 		"Hover Docs",
 	},
-	["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
+	["gd"] = { "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", "Definition" },
 	["gh"] = {
 		"<cmd>lua require('lspsaga.provider').lsp_finder()<CR>",
 		"References",

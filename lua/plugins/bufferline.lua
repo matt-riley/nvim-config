@@ -12,7 +12,7 @@ M.config = function()
 
 	bufferline.setup({
 		options = {
-			numbers = "buffer_id",
+			numbers = "both",
 			close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 			right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 			left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -34,6 +34,7 @@ M.config = function()
 				{
 					filetype = "NvimTree",
 					text = "File Explorer",
+					highlight = "Directory",
 					text_align = "center",
 				},
 			},
@@ -42,7 +43,7 @@ M.config = function()
 			show_close_icon = true,
 			show_tab_indicators = true,
 			persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-			separator_style = "slant",
+			separator_style = "thin",
 			sort_by = "id",
 		},
 	})

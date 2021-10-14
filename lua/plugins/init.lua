@@ -65,7 +65,7 @@ M.load_plugins = function()
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 			"onsails/lspkind-nvim",
-			"glepnir/lspsaga.nvim",
+			"tami5/lspsaga.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
 			"ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
@@ -90,8 +90,11 @@ M.load_plugins = function()
 
 	use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
 
-	use("glepnir/lspsaga.nvim") -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
-	use("jose-elias-alvarez/null-ls.nvim") -- inject LSP diagnostics, code actions, and more via Lua
+	-- use("glepnir/lspsaga.nvim") -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
+	use("tami5/lspsaga.nvim") -- till glepnir goes back online
+	use({
+		"jose-elias-alvarez/null-ls.nvim", -- inject LSP diagnostics, code actions, and more via Lua
+	})
 	use("ray-x/lsp_signature.nvim") -- lsp signature hint when you type
 	use({
 		"folke/trouble.nvim", -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
@@ -99,6 +102,16 @@ M.load_plugins = function()
 		config = require("plugins.trouble").config(),
 	})
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils" }) -- Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.
+
+	-- DAP
+	use({
+		"mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
+		requires = "theHamsta/nvim-dap-virtual-text",
+	})
+
+	use({
+		"theHamsta/nvim-dap-virtual-text", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
+	})
 
 	-- Telescope
 	use({
@@ -140,16 +153,18 @@ M.load_plugins = function()
 		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
 		config = require("plugins.indent-blankline").config(),
 	})
+
+	-- use({
+	-- 	"noib3/cokeline.nvim",
+	-- 	requires = "kyazdani42/nvim-web-devicons",
+	-- 	config = require("plugins.cokeline").config(),
+	-- })
+
 	use({
 		"akinsho/nvim-bufferline.lua", -- A snazzy bufferline for Neovim
 		requires = "kyazdani42/nvim-web-devicons",
 		config = require("plugins.bufferline").config(),
 	})
-	-- use({
-	-- 	"hoob3rt/lualine.nvim", -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
-	-- 	requires = { "kyazdani42/nvim-web-devicons" },
-	-- 	config = require("plugins.lualine").config(),
-	-- })
 
 	use({
 		"famiu/feline.nvim", -- A minimal, stylish and customizable statusline for Neovim written in Lua
