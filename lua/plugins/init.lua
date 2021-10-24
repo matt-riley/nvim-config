@@ -56,7 +56,6 @@ M.load_plugins = function()
 		"neovim/nvim-lspconfig", -- Quickstart configurations for the Nvim LSP client
 		config = require("plugins.lsp").load_config(),
 		requires = {
-			"kabouzeid/nvim-lspinstall",
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
@@ -73,7 +72,7 @@ M.load_plugins = function()
 		},
 	})
 	use({
-		"kabouzeid/nvim-lspinstall", -- Install LSP Servers
+		"williamboman/nvim-lsp-installer", -- Install LSP Servers
 		requires = "neovim/nvim-lspconfig",
 	})
 	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
