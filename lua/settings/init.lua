@@ -22,7 +22,7 @@ M.defaults = function()
 		backupdir = data_dir .. "/backups",
 		breakindent = true,
 		clipboard = "unnamedplus",
-		completeopt = "menu,menuone,noinsert,noselect",
+		completeopt = "menu,menuone,noselect",
 		cursorline = true,
 		encoding = "UTF-8",
 		expandtab = true,
@@ -64,6 +64,7 @@ M.defaults = function()
 	cmd([[
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
     ]])
+  cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 end
 
 return M

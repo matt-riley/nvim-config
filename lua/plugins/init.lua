@@ -54,9 +54,8 @@ M.load_plugins = function()
 	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig", -- Quickstart configurations for the Nvim LSP client
-		config = require("plugins.lsp").load_config(),
+		config = require("lsp").config(),
 		requires = {
-			"kabouzeid/nvim-lspinstall",
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
@@ -73,10 +72,13 @@ M.load_plugins = function()
 		},
 	})
 	use({
-		"kabouzeid/nvim-lspinstall", -- Install LSP Servers
+		"williamboman/nvim-lsp-installer",
 		requires = "neovim/nvim-lspconfig",
 	})
-	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+	use({
+		"hrsh7th/nvim-cmp", -- Autocompletion plugin
+		config = require("plugins.cmp").config(),
+	})
 	use("hrsh7th/cmp-path") -- nvim-cmp source for path
 	use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
 	use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
@@ -102,6 +104,10 @@ M.load_plugins = function()
 		config = require("plugins.trouble").config(),
 	})
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils" }) -- Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.
+
+	use({
+		"github/copilot.vim",
+	})
 
 	-- DAP
 	use({

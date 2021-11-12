@@ -28,7 +28,6 @@ M.config = function()
 		colors = require("plugins.feline.colours"),
 		components = require("plugins.feline.components"),
 		disable = require("plugins.feline.disable"),
-		force_inactive = require("plugins.feline.force_inactive"),
 		vi_mode_colors = vi_mode_colors,
 	})
 end
