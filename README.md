@@ -1,6 +1,6 @@
-# Neovim Config
-
-![screenshot](./imgs/neovim.png)
+<p align="center">
+  <img width="250px" src="./imgs/logo.gif">
+</p>
 
 ## Requirements
 
