@@ -93,10 +93,6 @@
         <td>inject LSP diagnostics, code actions, and more via Lua</td>
       </tr>
       <tr>
-        <td><a href="https://github.com/ray-x/lsp_signature.nvim">ray-x/lsp_signature.nvim</a></td>
-        <td>lsp signature hint when you type</td>
-      </tr>
-      <tr>
         <td><a href="https://github.com/folke/trouble.nvim">folke/trouble.nvim</a></td>
         <td>A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the
           trouble your code is causing.</td>
@@ -215,7 +211,7 @@
       </tr>
       <tr>
         <td><a href='https://github.com/norcalli/nvim-colorizer.lua'>norcalli/nvim-colorizer.lua</a></td>
-        <td>The fastest Neovim colorizer.</td>
+        <td>The faste:t Neovim colorizer.</td>
       </tr>
       <tr>
         <td><a href='https://github.com/sunjon/Shade.nvim'>sunjon/Shade.nvim</a></td>
