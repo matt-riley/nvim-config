@@ -66,7 +66,6 @@ M.load_plugins = function()
 			"onsails/lspkind-nvim",
 			"tami5/lspsaga.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
-			"ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
 			"folke/trouble.nvim",
 		},
@@ -93,11 +92,11 @@ M.load_plugins = function()
 	use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
 
 	-- use("glepnir/lspsaga.nvim") -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
-	use("tami5/lspsaga.nvim") -- till glepnir goes back online
+	use({ "tami5/lspsaga.nvim", config = require("plugins.lspsaga").config() }) -- till glepnir goes back online
 	use({
 		"jose-elias-alvarez/null-ls.nvim", -- inject LSP diagnostics, code actions, and more via Lua
 	})
-	use("ray-x/lsp_signature.nvim") -- lsp signature hint when you type
+
 	use({
 		"folke/trouble.nvim", -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
 		requires = "kyazdani42/nvim-web-devicons",
@@ -110,14 +109,14 @@ M.load_plugins = function()
 	})
 
 	-- DAP
-	use({
-		"mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
-		requires = "theHamsta/nvim-dap-virtual-text",
-	})
+	-- use({
+	-- 	"mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
+	-- 	requires = "theHamsta/nvim-dap-virtual-text",
+	-- })
 
-	use({
-		"theHamsta/nvim-dap-virtual-text", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
-	})
+	-- use({
+	-- 	"theHamsta/nvim-dap-virtual-text", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
+	-- })
 
 	-- Telescope
 	use({
@@ -159,12 +158,6 @@ M.load_plugins = function()
 		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
 		config = require("plugins.indent-blankline").config(),
 	})
-
-	-- use({
-	-- 	"noib3/cokeline.nvim",
-	-- 	requires = "kyazdani42/nvim-web-devicons",
-	-- 	config = require("plugins.cokeline").config(),
-	-- })
 
 	use({
 		"akinsho/nvim-bufferline.lua", -- A snazzy bufferline for Neovim
@@ -223,6 +216,10 @@ M.load_plugins = function()
 
 	use({
 		"elkowar/yuck.vim",
+	})
+
+	use({
+		"ggandor/lightspeed.nvim", -- Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort
 	})
 
 	--  theme
