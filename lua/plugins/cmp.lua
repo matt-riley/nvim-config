@@ -1,24 +1,19 @@
 local M = {}
 
 M.config = function()
-  local has_cmp, cmp = pcall(require, "cmp")
+	local has_cmp, cmp = pcall(require, "cmp")
 
-  if not has_cmp then
-    return
-  end
-  local has_lspkind, lspkind = pcall(require, "lspkind")
-  cmp.setup({
+	if not has_cmp then
+		return
+	end
+	local lspkind = require("lspkind")
+	cmp.setup({
 		formatting = {
-			format = function(_, vim_item)
-				if has_lspkind then
-					vim_item.kind = lspkind.presets.default[vim_item.kind]
-				end
-				return vim_item
-			end,
+			format = lspkind.cmp_format(),
 		},
 		snippet = {
 			expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+				require("luasnip").lsp_expand(args.body)
 			end,
 		},
 		mapping = {
@@ -40,7 +35,7 @@ M.config = function()
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 		},
-      })
-      require("cmp_nvim_lsp").setup()
+	})
+	require("cmp_nvim_lsp").setup()
 end
 return M
