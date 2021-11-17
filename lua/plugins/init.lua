@@ -47,7 +47,6 @@ M.load_plugins = function()
 		"kyazdani42/nvim-tree.lua", -- A file explorer tree for neovim written in lua
 		config = require("plugins.nvimtree").config(),
 		requires = "kyazdani42/nvim-web-devicons",
-		tag = "1.2.8",
 	})
 	use("folke/which-key.nvim") -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 
@@ -215,7 +214,7 @@ M.load_plugins = function()
 	})
 
 	-- Keep things up to date
-	execute("PackerSync")
+	packer.sync()
 end
 
 return M
