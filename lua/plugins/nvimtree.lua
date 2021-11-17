@@ -1,23 +1,17 @@
 local M = {}
 
 M.config = function()
+	local has_nvim_tree, nvim_tree = pcall(require, "nvim-tree")
+	if not has_nvim_tree then
+		return
+	end
 	local g = vim.g
 
-	g.loaded_netrw = 1
-	g.loaded_netrwPlugin = 1
-
-	g.nvim_tree_auto_close = 1
-	g.nvim_tree_auto_ignore_ft = { "alpha", "startify", "dashboard" }
-	g.nvim_tree_auto_open = 1
 	g.nvim_tree_disable_window_picker = 1
-	g.nvim_tree_follow = 1
 	g.nvim_tree_git_hl = 1
-	g.nvim_tree_ignore = { ".git" }
 	g.nvim_tree_indent_markers = 1
-	g.nvim_tree_lsp_diagnostics = 1
 	g.nvim_tree_quit_on_open = 1
 	g.nvim_tree_root_folder_modifier = ":t"
-	g.nvim_tree_side = "right"
 	g.nvim_tree_show_icons = {
 		git = 1,
 		folders = 1,
@@ -46,13 +40,18 @@ M.config = function()
 			symlink = "",
 			symlink_open = "",
 		},
-		lsp = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		},
 	}
+
+	nvim_tree.setup({
+		auto_close = true,
+		diagnostics = { enabled = true, icons = { hint = "", info = "", warning = "", error = "" } },
+		filters = { custom = { ".git" } },
+		ignore_ft_on_setup = { "alpha", "startify", "dashboard" },
+		open_on_setup = true,
+		update_cwd = true,
+		update_focused_file = { enabled = true },
+		view = { side = "right" },
+	})
 end
 
 M.keymaps = {

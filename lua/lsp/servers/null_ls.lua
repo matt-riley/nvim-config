@@ -2,8 +2,8 @@ local M = {}
 
 M.setup = function()
 	local has_null, null_ls = pcall(require, "null-ls")
-	local lsp = require("lspconfig")
-	if has_null then
+	local has_lsp, lsp = pcall(require, "lspconfig")
+	if has_null and has_lsp then
 		local b = null_ls.builtins
 		local null_config = {
 			sources = {
