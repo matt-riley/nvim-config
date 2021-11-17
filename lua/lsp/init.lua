@@ -14,9 +14,10 @@ M.config = function()
 		saga.init_lsp_saga()
 	end
 
-	require("lsp.tsserver").setup()
-	require("lsp.sumneko").setup()
 	require("lsp.null_ls").setup()
+	require("lsp.sumneko").setup()
+	require("lsp.terraformls").setup()
+	require("lsp.tsserver").setup()
 end
 
 return M

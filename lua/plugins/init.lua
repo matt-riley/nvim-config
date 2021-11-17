@@ -108,16 +108,6 @@ M.load_plugins = function()
 		"github/copilot.vim",
 	})
 
-	-- DAP
-	-- use({
-	-- 	"mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
-	-- 	requires = "theHamsta/nvim-dap-virtual-text",
-	-- })
-
-	-- use({
-	-- 	"theHamsta/nvim-dap-virtual-text", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
-	-- })
-
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.
@@ -213,10 +203,6 @@ M.load_plugins = function()
 	})
 
 	use({ "wakatime/vim-wakatime" }) -- Vim plugin for automatic time tracking and metrics generated from your programming activity.
-
-	use({
-		"elkowar/yuck.vim",
-	})
 
 	use({
 		"ggandor/lightspeed.nvim", -- Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort
