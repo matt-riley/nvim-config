@@ -15,6 +15,7 @@ M.config = function()
 	end
 
 	require("lsp.servers.dockerls").setup()
+	require("lsp.servers.html").setup()
 	require("lsp.servers.null_ls").setup()
 	require("lsp.servers.sumneko").setup()
 	require("lsp.servers.terraformls").setup()

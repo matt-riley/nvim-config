@@ -1,3 +1,3 @@
 vim.cmd([[
-  au BufRead,BufNewFile *.astro setlocal filetype=markdown
+  au BufRead,BufNewFile *.astro setlocal filetype=html
 ]])

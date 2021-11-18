@@ -37,36 +37,39 @@ M.load_plugins = function()
 	packer.reset()
 
 	-- important plugins required either for the config or other plugins to work
-	use("wbthomason/packer.nvim") -- A use-package inspired plugin manager for Neovim.
-	use("rcarriga/nvim-notify") -- A fancy, configurable, notification manager for NeoVim
-	use("nvim-lua/plenary.nvim") -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
-	use("nvim-lua/popup.nvim") -- [WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
-	use("folke/lua-dev.nvim") -- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-	use("kyazdani42/nvim-web-devicons") -- lua `fork` of vim-web-devicons for neovim
+	use({
+		"wbthomason/packer.nvim", -- A use-package inspired plugin manager for Neovim.
+	})
+	use({
+		"rcarriga/nvim-notify",
+	}) -- A fancy, configurable, notification manager for NeoVim
+	use({
+		"nvim-lua/plenary.nvim",
+	}) -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+	use({
+		"nvim-lua/popup.nvim",
+	}) -- [WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
+	use({
+		"folke/lua-dev.nvim",
+	}) -- Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+	use({
+		"kyazdani42/nvim-web-devicons",
+	}) -- lua `fork` of vim-web-devicons for neovim
 	use({
 		"kyazdani42/nvim-tree.lua", -- A file explorer tree for neovim written in lua
 		config = require("plugins.nvimtree").config(),
 		requires = "kyazdani42/nvim-web-devicons",
 	})
-	use("folke/which-key.nvim") -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+	use({
+		"folke/which-key.nvim",
+	}) -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 
 	-- LSP stuff
 	use({
 		"neovim/nvim-lspconfig", -- Quickstart configurations for the Nvim LSP client
 		config = require("lsp").config(),
 		requires = {
-			"hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
-			"saadparwaiz1/cmp_luasnip",
-			"L3MON4D3/LuaSnip",
-			"onsails/lspkind-nvim",
-			"tami5/lspsaga.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-			"jose-elias-alvarez/nvim-lsp-ts-utils",
-			"folke/trouble.nvim",
 		},
 	})
 	use({
@@ -77,20 +80,39 @@ M.load_plugins = function()
 		"hrsh7th/nvim-cmp", -- Autocompletion plugin
 		config = require("plugins.cmp").config(),
 	})
-	use("hrsh7th/cmp-path") -- nvim-cmp source for path
-	use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
-	use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
+	use({
+		"hrsh7th/cmp-path", -- nvim-cmp source for path
+	})
+	use({
+		"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
+	})
+	use({
+		"hrsh7th/cmp-nvim-lua", -- nvim-cmp source for nvim lua
+	})
 	use({
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
 	})
 	use({
 		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
 	})
-	use("L3MON4D3/LuaSnip") -- Snippets Plugin
+	use({
+		"L3MON4D3/LuaSnip", -- Snippets Plugin
+		requires = {
+			"rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
+		},
+	})
+	use({
+		"windwp/nvim-autopairs",
+		config = require("plugins.autopairs").config(),
+	})
 
-	use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
+	use({
+		"onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
+	})
 
-	-- use("glepnir/lspsaga.nvim") -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
+	-- use({
+	-- "glepnir/lspsaga.nvim",
+	-- }) -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
 	use({ "tami5/lspsaga.nvim", config = require("plugins.lspsaga").config() }) -- till glepnir goes back online
 	use({
 		"jose-elias-alvarez/null-ls.nvim", -- inject LSP diagnostics, code actions, and more via Lua
@@ -133,7 +155,9 @@ M.load_plugins = function()
 	use({ "nvim-treesitter/nvim-treesitter-refactor" }) -- Refactor module for nvim-treesitter
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", branch = "0.5-compat" }) -- Create your own textobjects using tree-sitter queries!
 	use({ "romgrk/nvim-treesitter-context" }) -- Show code context
-	use({ "windwp/nvim-ts-autotag" }) -- Use treesitter to auto close and auto rename html tag
+	use({
+		"windwp/nvim-ts-autotag", -- Use treesitter to auto close and auto rename html tag
+	})
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
 	use({ "tpope/vim-commentary" }) -- commentary.vim: comment stuff out
 
