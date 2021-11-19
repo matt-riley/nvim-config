@@ -12,7 +12,9 @@ M.config = function()
 
 	bufferline.setup({
 		options = {
-			numbers = "both",
+			numbers = function(opts)
+				return opts.id
+			end,
 			close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 			right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 			left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -40,10 +42,10 @@ M.config = function()
 			},
 			show_buffer_icons = true, -- disable filetype icons for buffers
 			show_buffer_close_icons = true,
-			show_close_icon = true,
+			show_close_icon = false,
 			show_tab_indicators = true,
 			persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-			separator_style = "thin",
+			separator_style = "slant",
 			sort_by = "id",
 		},
 	})

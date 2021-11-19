@@ -113,7 +113,10 @@ M.load_plugins = function()
 	-- use({
 	-- "glepnir/lspsaga.nvim",
 	-- }) -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
-	use({ "tami5/lspsaga.nvim", config = require("plugins.lspsaga").config() }) -- till glepnir goes back online
+	use({
+		"tami5/lspsaga.nvim", -- till glepnir goes back online
+		config = require("plugins.lspsaga").config(),
+	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim", -- inject LSP diagnostics, code actions, and more via Lua
 	})
@@ -160,6 +163,12 @@ M.load_plugins = function()
 	})
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
 	use({ "tpope/vim-commentary" }) -- commentary.vim: comment stuff out
+
+	-- Org-mode
+	use({
+		"kristijanhusak/orgmode.nvim", -- Orgmode clone written in Lua for Neovim 0.5+.
+		config = require("plugins.orgmode").config(),
+	})
 
 	--  UI stuff
 	use({

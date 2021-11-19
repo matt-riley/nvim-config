@@ -6,6 +6,8 @@ M.config = function()
 		return
 	end
 
+	require("plugins.treesitter.org_parser").create_parser()
+
 	treesitter.setup({
 		autotag = {
 			enable = true,
@@ -27,6 +29,7 @@ M.config = function()
 
 		highlight = {
 			enable = true, -- false will disable the whole extension
+			additional_vim_regex_highlighting = { "org" },
 		},
 
 		incremental_selection = {
