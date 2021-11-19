@@ -33,6 +33,7 @@ M.config = function()
 			{ name = "nvim_lsp" },
 			{ name = "path" },
 			{ name = "buffer" },
+			{ name = "orgmode" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 		},
