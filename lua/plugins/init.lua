@@ -182,9 +182,9 @@ M.load_plugins = function()
 	})
 
 	use({
-		"akinsho/nvim-bufferline.lua", -- A snazzy bufferline for Neovim
+		"noib3/cokeline.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = require("plugins.bufferline").config(),
+		config = require("plugins.cokeline").config(),
 	})
 
 	use({
