@@ -20,7 +20,9 @@ M.config = function()
 				bg = "NONE",
 			},
 		},
-
+		buffers = {
+			new_buffers_position = "next",
+		},
 		components = {
 			{
 				text = function(buffer)
