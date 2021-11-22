@@ -240,6 +240,10 @@ M.load_plugins = function()
 		"ggandor/lightspeed.nvim", -- Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort
 	})
 
+	use({
+		"kkoomen/vim-doge", -- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress. ⚡️🔥
+	})
+
 	--  theme
 	use({
 		"folke/tokyonight.nvim", -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins.
