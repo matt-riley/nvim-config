@@ -8,12 +8,12 @@ M.setup = function()
 		local null_config = {
 			sources = {
 				-- diagnostics
-				b.diagnostics.eslint_d,
+				b.diagnostics.eslint,
 				b.diagnostics.selene, -- A blazing-fast modern Lua linter written in Rust
 				b.diagnostics.hadolint, -- Dockerfile linter, validate inline bash, written in Haskell
 				-- formatting
 				b.formatting.stylua,
-				b.formatting.eslint_d,
+				b.formatting.eslint,
 				b.formatting.terraform_fmt,
 				b.formatting.golines.with({
 					args = { "-m", "80", "--chain-split-dots", "-t", "2" },

@@ -6,9 +6,6 @@ local lsp_mappings = {
 				"<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
 				"Code Action",
 			},
-		},
-		d = {
-			name = "LSP - Diagnostics",
 			c = {
 				"<cmd>lua require('lspsaga.diagnostic').show_cursor_diagnostics()<CR>",
 				"Cursor Diagnostics",
@@ -40,7 +37,7 @@ local lsp_mappings = {
 		"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
 		"Hover Docs",
 	},
-	["gd"] = { "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", "Definition" },
+	["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
 	["gh"] = {
 		"<cmd>lua require('lspsaga.provider').lsp_finder()<CR>",
 		"References",
