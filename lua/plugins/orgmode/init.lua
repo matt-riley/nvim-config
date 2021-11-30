@@ -5,7 +5,7 @@ M.config = function()
   if not has_orgmode then
     return
   end
-  local company = os.getenv("COMPANY")
+  local company = os.getenv("COMPANY") or "personal"
   orgmode.setup({
     org_agenda_files = { "~/org/**/*" },
     org_default_notes_file = "~/org/refile.org",
