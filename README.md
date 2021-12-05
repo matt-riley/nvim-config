@@ -6,7 +6,7 @@
 
 - [neovim](https://github.com/neovim/neovim) >= 0.5
 
-## Plugins
+<!-- ## Plugins
 
 <details>
   <summary>
@@ -229,4 +229,4 @@
       </tr>
     </tbody>
   </table>
-</details>
+</details> -->

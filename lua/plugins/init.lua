@@ -169,7 +169,7 @@ M.load_plugins = function()
     "windwp/nvim-ts-autotag", -- Use treesitter to auto close and auto rename html tag
   })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
-  use({ "tpope/vim-commentary" }) -- commentary.vim: comment stuff out
+  use({ "numToStr/Comment.nvim", config = require("plugins.comment").config() }) -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 
   -- Org-mode
   use({
