@@ -65,7 +65,7 @@ M.defaults = function()
   cmd([[
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
     ]])
-  cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
 end
 
 return M
