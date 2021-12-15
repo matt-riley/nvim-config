@@ -65,7 +65,11 @@ M.defaults = function()
   cmd([[
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
     ]])
-  cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+
+  local keymap = vim.api.nvim_set_keymap
+  local opt = { noremap = true, silent = true }
+  keymap("v", "J", ":m '>+1<CR>gv=gv", opt)
+  keymap("v", "K", "m '<-2<CR>gv=gv", opt)
 end
 
 return M

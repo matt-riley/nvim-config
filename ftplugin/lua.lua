@@ -1,8 +1,8 @@
---[[ local au = require("utils.au")
+local au = require("utils.au")
 
 local cmds = {
   luaFile = {
-    { "BufEnter", "*.lua", "lua require('autocmds.nestjs').on_enter()" },
+    { "BufEnter", "*.lua", "lua require('autocmds.lua')()" },
   },
 }
-au(cmds) ]]
+au(cmds)

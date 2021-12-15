@@ -139,6 +139,10 @@ M.load_plugins = function()
     "github/copilot.vim",
   })
 
+  --[[ use({
+    "b0o/schemastore.nvim", -- A Neovim Lua plugin providing access to the SchemaStore catalog.
+  }) ]]
+
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.

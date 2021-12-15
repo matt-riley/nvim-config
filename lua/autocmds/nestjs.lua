@@ -1,4 +1,4 @@
-local Job = require("plenary.job")
+--[[ local Job = require("plenary.job")
 local M = {}
 M.on_enter = function()
   local tmux = os.getenv("TMUX")
@@ -21,5 +21,11 @@ M.on_enter = function()
     })
     :sync()
 end
+
+return M ]]
+
+local M = {}
+
+M.controller = function() end
 
 return M
