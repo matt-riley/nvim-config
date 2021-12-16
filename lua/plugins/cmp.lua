@@ -31,6 +31,7 @@ M.config = function()
     },
     sources = {
       { name = "nvim_lsp" },
+      { name = "cmp_tabnine" },
       { name = "path" },
       { name = "buffer" },
       { name = "orgmode" },

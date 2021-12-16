@@ -139,6 +139,12 @@ M.load_plugins = function()
     "github/copilot.vim",
   })
 
+  use({
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  })
+
   --[[ use({
     "b0o/schemastore.nvim", -- A Neovim Lua plugin providing access to the SchemaStore catalog.
   }) ]]
