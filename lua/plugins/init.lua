@@ -1,7 +1,6 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
-local au = require("utils.au")
-
+local au = require("utils").au
 local M = {}
 
 M.install_packer = function()
@@ -40,7 +39,6 @@ M.load_plugins = function()
   }
 
   au(cmds)
-
   local has_notify = pcall(require, "notify")
   if has_notify then
     local config = {
@@ -50,10 +48,17 @@ M.load_plugins = function()
     }
     packer.init(config)
   else
-    packer.init()
+    local config = {
+      display = {
+        open_fn = function()
+          return require("packer.util").float({ border = "rounded" })
+        end,
+      },
+    }
+    packer.init(config)
   end
 
-  local use = require("plugins.utils").use
+  local use = require("utils").use
   packer.reset()
 
   -- important plugins required either for the config or other plugins to work
@@ -182,12 +187,11 @@ M.load_plugins = function()
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
-    branch = "0.5-compat",
     run = ":TSUpdate",
     config = require("plugins.treesitter").config(),
   })
   use({ "nvim-treesitter/nvim-treesitter-refactor" }) -- Refactor module for nvim-treesitter
-  use({ "nvim-treesitter/nvim-treesitter-textobjects", branch = "0.5-compat" }) -- Create your own textobjects using tree-sitter queries!
+  use({ "nvim-treesitter/nvim-treesitter-textobjects" }) -- Create your own textobjects using tree-sitter queries!
   use({ "romgrk/nvim-treesitter-context" }) -- Show code context
   use({
     "windwp/nvim-ts-autotag", -- Use treesitter to auto close and auto rename html tag
@@ -246,7 +250,7 @@ M.load_plugins = function()
 
   -- Others
   use({
-    "goolord/alpha-nvim",
+    "goolord/alpha-nvim", -- a lua powered greeter like vim-startify / dashboard-nvim
     config = require("plugins.alpha").config(),
   })
 

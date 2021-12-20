@@ -59,6 +59,9 @@ M.defaults = function()
     opt[name] = value
   end
 
+  vim.g.onebeer = {
+    utils = require("utils"),
+  }
   vim.opt_global.shortmess:remove("F") -- NOTE: Without doing this, autocommands that deal with filetypes prohibit messages from being shown
 
   --  Return to the same position in the file when reopening
@@ -67,9 +70,9 @@ M.defaults = function()
     ]])
 
   local keymap = vim.api.nvim_set_keymap
-  local opt = { noremap = true, silent = true }
-  keymap("v", "J", ":m '>+1<CR>gv=gv", opt)
-  keymap("v", "K", "m '<-2<CR>gv=gv", opt)
+  local opts = { noremap = true, silent = true }
+  keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+  keymap("v", "K", "m '<-2<CR>gv=gv", opts)
 end
 
 return M

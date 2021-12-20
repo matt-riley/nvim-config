@@ -1,9 +1,4 @@
-local Utils = {}
-
-local has_notify, notify = pcall(require, "notify")
-
---  vim.inspect(table)
-Utils.use = function(conf)
+local use = function(conf)
   local new_conf = {}
   if type(conf) == "string" then
     new_conf[1] = conf
@@ -11,6 +6,7 @@ Utils.use = function(conf)
     new_conf = conf
   end
   new_conf.run = function(plugin)
+    local has_notify, notify = pcall(require, "notify")
     if has_notify then
       notify(table.concat(plugin.messages, "\n"), "info", {
         title = plugin.short_name,
@@ -25,4 +21,4 @@ Utils.use = function(conf)
   return pkr_use(new_conf)
 end
 
-return Utils
+return use

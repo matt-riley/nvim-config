@@ -8,6 +8,9 @@ M.defaults = function()
   local opt = { noremap = true, silent = true }
   g.mapleader = " "
 
+  -- Turn off hlsearch
+  nvim_keymap("n", "<leader>,", ":nohl<cr>", opt)
+
   if has_wk then
     wk.setup()
     local wk_mappings = require("keymaps.mappings")
