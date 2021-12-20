@@ -1,5 +1,6 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
+local au = require("utils.au")
 
 local M = {}
 
@@ -11,7 +12,7 @@ M.install_packer = function()
   fn.mkdir(directory, "p")
   local output = fn.system(
     (string.format(
-      "git clone %s %s",
+      "git clone --depth 1 %s %s",
       "https://github.com/wbthomason/packer.nvim",
       directory .. "/packer.nvim"
     ))
@@ -27,6 +28,18 @@ M.load_plugins = function()
   if not has_packer then
     M.install_packer()
   end
+
+  local cmds = {
+    packer_user_config = {
+      {
+        "BufWritePost",
+        "lua/plugins/init.lua",
+        "source <afile> | PackerSync",
+      },
+    },
+  }
+
+  au(cmds)
 
   local has_notify = pcall(require, "notify")
   if has_notify then
@@ -122,6 +135,7 @@ M.load_plugins = function()
   -- }) -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
   use({
     "tami5/lspsaga.nvim", -- till glepnir goes back online
+    branch = "nvim6.0",
     config = require("plugins.lspsaga").config(),
   })
   use({
@@ -205,6 +219,7 @@ M.load_plugins = function()
   use({
     "noib3/cokeline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+    branch = "master",
     config = require("plugins.cokeline").config(),
   })
 
@@ -259,6 +274,7 @@ M.load_plugins = function()
 
   use({
     "ggandor/lightspeed.nvim", -- Next-generation motion plugin with incremental input processing, allowing for unparalleled speed with near-zero cognitive effort
+    config = require("plugins.lightspeed").config(),
   })
 
   use({
