@@ -228,7 +228,7 @@ M.load_plugins = function()
   })
 
   use({
-    "famiu/feline.nvim", -- A minimal, stylish and customizable statusline for Neovim written in Lua
+    "feline-nvim/feline.nvim", -- A minimal, stylish and customizable statusline for Neovim written in Lua
     requires = { "kyazdani42/nvim-web-devicons" },
     config = require("plugins.feline").config(),
   })
@@ -246,6 +246,11 @@ M.load_plugins = function()
   use({
     "beauwilliams/focus.nvim", -- Auto-Focusing and Auto-Resizing Splits/Windows for Neovim written in Lua! Vim splits on steroids.
     config = require("plugins.focus").config(),
+  })
+
+  use({
+    "lukas-reineke/headlines.nvim",
+    config = require("plugins.headlines").config(),
   })
 
   -- Others
@@ -286,9 +291,14 @@ M.load_plugins = function()
   })
 
   --  theme
-  use({
+  --[[ use({
     "folke/tokyonight.nvim", -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins.
     config = require("plugins.tokyonight").config(),
+  }) ]]
+
+  use({
+    "rebelot/kanagawa.nvim",
+    config = require("plugins.kanagawa").config(),
   })
 
   -- Keep things up to date

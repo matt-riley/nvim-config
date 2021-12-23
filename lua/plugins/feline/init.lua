@@ -1,35 +1,18 @@
 local M = {}
 
 M.config = function()
-	local has_feline, feline = pcall(require, "feline")
+  local has_feline, feline = pcall(require, "feline")
 
-	if not has_feline then
-		return
-	end
+  if not has_feline then
+    return
+  end
 
-	local vi_mode_colors = {
-		NORMAL = "green2" or "green",
-		OP = "green2" or "green",
-		INSERT = "red1",
-		VISUAL = "blue",
-		BLOCK = "blue",
-		REPLACE = "magenta",
-		["V-REPLACE"] = "magenta",
-		ENTER = "cyan",
-		MORE = "cyan",
-		SELECT = "orange",
-		COMMAND = "green",
-		SHELL = "green",
-		TERM = "green",
-		NONE = "yellow",
-	}
-
-	feline.setup({
-		colors = require("plugins.feline.colours"),
-		components = require("plugins.feline.components"),
-		disable = require("plugins.feline.disable"),
-		vi_mode_colors = vi_mode_colors,
-	})
+  feline.setup({
+    theme = require("plugins.feline.colours").theme,
+    components = require("plugins.feline.components"),
+    disable = require("plugins.feline.disable"),
+    vi_mode_colors = require("plugins.feline.colours").vi_mode,
+  })
 end
 
 return M

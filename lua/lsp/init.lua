@@ -25,6 +25,7 @@ M.config = function()
   require("lsp.servers.sumneko").setup()
   require("lsp.servers.terraformls").setup()
   require("lsp.servers.tsserver").setup()
+  require("lsp.servers.yamlls").setup()
 end
 
 return M

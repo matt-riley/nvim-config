@@ -7,7 +7,7 @@ M.setup = function()
     local null_config = {
       sources = {
         -- diagnostics
-        b.diagnostics.eslint.with({
+        b.diagnostics.eslint_d.with({
           condition = function(utils)
             return utils.root_has_file(".eslintrc.js")
               or utils.root_has_file(".eslintrc")
@@ -19,7 +19,7 @@ M.setup = function()
         b.diagnostics.shellcheck,
         -- formatting
         b.formatting.stylua,
-        b.formatting.eslint.with({
+        b.formatting.eslint_d.with({
           condition = function(utils)
             return utils.root_has_file(".eslintrc.js")
               or utils.root_has_file(".eslintrc")

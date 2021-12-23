@@ -21,7 +21,7 @@ M.config = function()
     ---Could be a regex string or a function that returns a regex string.
     ---Example: Use '^$' to ignore empty lines
     ---@type string|function
-    ignore = nil,
+    ignore = "^$",
 
     ---LHS of toggle mappings in NORMAL + VISUAL mode
     ---@type table
@@ -64,7 +64,7 @@ M.config = function()
     ---@type fun(ctx: Ctx)
     post_hook = nil,
   }
-  comment.setup()
+  comment.setup(comment_config)
 end
 
 return M
