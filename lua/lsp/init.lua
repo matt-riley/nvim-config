@@ -18,6 +18,7 @@ M.config = function()
   end
 
   require("lsp.servers.bash").setup()
+  require("lsp.servers.css").setup()
   require("lsp.servers.dockerls").setup()
   require("lsp.servers.html").setup()
   require("lsp.servers.jsonls").setup()
