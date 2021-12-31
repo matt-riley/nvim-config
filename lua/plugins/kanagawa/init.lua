@@ -6,6 +6,12 @@ M.config = function()
     return
   end
 
+  local default_colours = require("kanagawa.colors").setup()
+
+  local overrides = {
+    CopilotSuggestion = { fg = default_colours.sumiInk4 },
+  }
+
   kanagawa.setup({
     undercurl = true, -- enable undercurls
     commentStyle = "italic",
@@ -18,7 +24,7 @@ M.config = function()
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
     colors = {},
-    overrides = {},
+    overrides = overrides,
   })
 
   vim.cmd("colorscheme kanagawa")
