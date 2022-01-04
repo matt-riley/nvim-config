@@ -290,11 +290,27 @@ M.load_plugins = function()
     "kkoomen/vim-doge", -- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress. ⚡️🔥
   })
 
-  --  theme
+  use({
+    "vim-test/vim-test", -- Run your tests at the speed of thought
+    config = require("plugins.vim-test").config(),
+  })
+
   --[[ use({
-    "folke/tokyonight.nvim", -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins.
-    config = require("plugins.tokyonight").config(),
+    "rcarriga/vim-ultest", -- The ultimate testing plugin for (Neo)Vim
+    requires = { "vim-test/vim-test" },
+    run = ":UpdateRemotePlugins",
   }) ]]
+
+  use({
+    "mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
+    config = require("plugins.dap").config(),
+  })
+
+  use({
+    "nathom/filetype.nvim", -- A faster version of filetype.vim
+  })
+
+  --  theme
 
   use({
     "rebelot/kanagawa.nvim",
