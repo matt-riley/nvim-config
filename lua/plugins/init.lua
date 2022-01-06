@@ -292,14 +292,15 @@ M.load_plugins = function()
 
   use({
     "vim-test/vim-test", -- Run your tests at the speed of thought
+    requires = { "tpope/vim-projectionist" },
     config = require("plugins.vim-test").config(),
   })
 
-  --[[ use({
+  use({
     "rcarriga/vim-ultest", -- The ultimate testing plugin for (Neo)Vim
     requires = { "vim-test/vim-test" },
     run = ":UpdateRemotePlugins",
-  }) ]]
+  })
 
   use({
     "mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
@@ -308,6 +309,11 @@ M.load_plugins = function()
 
   use({
     "nathom/filetype.nvim", -- A faster version of filetype.vim
+  })
+
+  use({
+    "tpope/vim-projectionist", -- projectionist.vim: Granular project configuration
+    config = require("plugins.projectionist").config(),
   })
 
   --  theme

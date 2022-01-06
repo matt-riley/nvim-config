@@ -9,6 +9,7 @@ local trouble_mappings = require("plugins.trouble").keymaps
 local ts_lsp_mappings = require("plugins.lsp-ts-utils").keymaps
 local hlslens_mappings = require("plugins.hlslens").keymaps
 local cokeline_mappings = require("plugins.cokeline").keymaps
+local test_runner_mappings = require("plugins.vim-test").keymaps
 
 local extend_table = vim.tbl_deep_extend
 local has_notify, notify = pcall(require, "notify")
@@ -25,6 +26,7 @@ local has_mappings, wk_mappings = pcall(
   nvimtree_mappings,
   package_info,
   telescope_mappings,
+  test_runner_mappings,
   trouble_mappings,
   ts_lsp_mappings
 )
