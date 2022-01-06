@@ -209,6 +209,7 @@ M.load_plugins = function()
   --   "nvim-neorg/neorg", -- Modernity meets insane extensibility. The future of organizing your life in Neovim.
   --   config = require("plugins.neorg").config(),
   -- })
+
   --  UI stuff
   use({
     "lewis6991/gitsigns.nvim", -- Git signs written in pure lua
@@ -251,6 +252,11 @@ M.load_plugins = function()
   use({
     "lukas-reineke/headlines.nvim",
     config = require("plugins.headlines").config(),
+  })
+
+  use({
+    "anuvyklack/pretty-fold.nvim", -- Foldtext customization and folded region preview in Neovim.
+    config = require("plugins.pretty-fold").config(),
   })
 
   -- Others
@@ -316,6 +322,10 @@ M.load_plugins = function()
     config = require("plugins.projectionist").config(),
   })
 
+  use({
+    "monaqa/dial.nvim", -- enhanced increment/decrement plugin for Neovim.
+    config = require("plugins.dial").config(),
+  })
   --  theme
 
   use({

@@ -43,6 +43,7 @@ M.defaults = function()
     signcolumn = "yes",
     softtabstop = 2,
     splitbelow = true,
+    splitright = true,
     tabstop = 2,
     termguicolors = true,
     title = true,
