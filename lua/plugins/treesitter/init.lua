@@ -60,6 +60,9 @@ M.config = function()
       },
     },
 
+    --[[ tree_docs = {
+      enable = true,
+    }, ]]
     textobjects = {
       select = {
         enable = true,

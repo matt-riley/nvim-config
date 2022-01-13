@@ -36,7 +36,7 @@ M.config = function()
     -- "delete" : Delete all comment signs from the fold string.
     -- "spaces" : Replace all comment signs with equal number of spaces.
     -- false    : Do nothing with comment signs.
-    comment_signs = "spaces",
+    comment_signs = {},
 
     -- List of patterns that will be removed from content foldtext section.
     stop_words = {},

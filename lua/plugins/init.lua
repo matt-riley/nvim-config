@@ -199,6 +199,10 @@ M.load_plugins = function()
   use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
   use({ "numToStr/Comment.nvim", config = require("plugins.comment").config() }) -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 
+  --[[ use({
+    "nvim-treesitter/nvim-tree-docs", -- Code documentation built with treesitter
+  }) ]]
+
   -- Org-mode
   use({
     "nvim-orgmode/orgmode", -- Orgmode clone written in Lua for Neovim 0.5+.
@@ -294,6 +298,8 @@ M.load_plugins = function()
 
   use({
     "kkoomen/vim-doge", -- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress. ⚡️🔥
+    config = require("plugins.doge").config(),
+    run = ":call doge#install()",
   })
 
   use({
