@@ -1,311 +1,163 @@
 local vi_mode = require("feline.providers.vi_mode")
-
+local colours = require("plugins.feline.colours").theme
 local components = {
   active = { {}, {}, {} },
   inactive = {},
 }
 
 components.active[1][1] = {
-  provider = "█",
-  hl = function()
-    return {
-      fg = vi_mode.get_mode_color(),
-      style = "bold",
-    }
-  end,
-  right_sep = {
-    str = "",
-    hl = function()
-      return {
-        fg = vi_mode.get_mode_color(),
-      }
-    end,
-  },
-}
-
-components.active[1][2] = {
   provider = "  ",
   hl = function()
     return {
-      fg = "orange",
+      fg = colours.orange,
       style = "bold",
     }
   end,
+  left_sep = " ",
+  right_sep = "",
 }
-components.active[1][3] = {
+components.active[1][2] = {
   provider = function()
     local mode = vi_mode.get_vim_mode():lower()
     return mode:sub(1, 1):upper() .. mode:sub(2)
   end,
   hl = function()
     return {
-      fg = "black",
+      fg = colours.black,
       bg = vi_mode.get_mode_color(),
       style = "bold",
     }
   end,
-  left_sep = "█",
-  right_sep = "█",
+  left_sep = " ",
+  right_sep = "",
 }
 
-components.active[1][4] = {
+components.active[1][3] = {
   provider = "file_info",
   hl = {
-    fg = "white",
+    fg = colours.black,
     style = "bold",
+    bg = colours.yellow,
   },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "white",
-    },
-  },
-  left_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = " ",
+  right_sep = "",
 }
 
 components.active[2][1] = {
-  provider = "",
-  hl = function()
-    return {
-      fg = vi_mode.get_mode_color(),
-    }
-  end,
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "white",
-    },
-  },
-}
-
-components.active[2][2] = {
   provider = "lsp_client_names",
   hl = {
-    fg = "white",
+    fg = colours.black,
     style = "bold",
+    bg = colours.skyblue,
   },
   icon = {
-    str = "  ",
+    str = "   ",
     hl = {
-      fg = "white",
+      fg = colours.black,
     },
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "white",
-    },
-  },
-
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "white",
-    },
-  },
-}
-
-components.active[2][3] = {
-  provider = "",
-  hl = function()
-    return {
-      fg = vi_mode.get_mode_color(),
-    }
-  end,
-  right_sep = {
-    str = "",
-    hl = {
-      fg = "white",
-    },
-  },
+  left_sep = "",
+  right_sep = "",
 }
 
 components.active[3][1] = {
   provider = "diagnostic_errors",
   hl = {
-    fg = "red",
+    bg = colours.red,
     style = "bold",
+    fg = colours.black,
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "red",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 
 -- diagnosticWarn
 components.active[3][2] = {
   provider = "diagnostic_warnings",
   hl = {
-    fg = "yellow",
+    bg = colours.yellow,
     style = "bold",
+    fg = colours.black,
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "yellow",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 -- diagnosticHint
 components.active[3][3] = {
   provider = "diagnostic_hints",
   hl = {
-    fg = "cyan",
+    bg = colours.cyan,
     style = "bold",
+    fg = colours.black,
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "cyan",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 -- diagnosticInfo
 components.active[3][4] = {
   provider = "diagnostic_info",
   hl = {
-    fg = "skyblue",
+    bg = colours.skyblue,
     style = "bold",
+    fg = colours.black,
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "skyblue",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 
 components.active[3][5] = {
   provider = "git_branch",
   hl = {
-    fg = "green",
+    bg = colours.green,
     style = "bold",
+    fg = colours.black,
   },
-  icon = "  ",
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "green",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  icon = " ",
+  left_sep = "",
+  right_sep = " ",
 }
 
 components.active[3][6] = {
   provider = "git_diff_added",
   hl = {
-    fg = "green",
+    bg = colours.green,
     style = "bold",
+    fg = colours.black,
   },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "green",
-    },
-  },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 
 components.active[3][7] = {
   provider = "git_diff_changed",
   hl = {
-    fg = "orange",
+    bg = colours.orange,
     style = "bold",
+    fg = colours.black,
   },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
-
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "orange",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 components.active[3][8] = {
   provider = "git_diff_removed",
   hl = {
-    fg = "red",
+    bg = colours.red,
     style = "bold",
+    fg = colours.black,
   },
-  right_sep = {
-    str = " ",
-    hl = {
-      fg = "NONE",
-    },
-  },
-  left_sep = {
-    str = "",
-    hl = {
-      fg = "red",
-    },
-  },
+  left_sep = "",
+  right_sep = " ",
 }
 
-components.active[3][9] = {
+--[[ components.active[3][9] = {
   provider = "position",
   hl = {
-    fg = "bg",
-    bg = "purple",
+    fg = colours.black,
+    bg = colours.purple,
     style = "bold",
   },
-  right_sep = {
-    str = "█",
-    hl = {
-      fg = "purple",
-    },
-  },
-  left_sep = {
-    str = "█",
-    hl = {
-      fg = "purple",
-    },
-  },
-}
+  left_sep = "",
+  right_sep = " ",
+} ]]
 
 return components

@@ -8,7 +8,6 @@ M.config = function()
   end
 
   feline.setup({
-    theme = require("plugins.feline.colours").theme,
     components = require("plugins.feline.components"),
     disable = require("plugins.feline.disable"),
     vi_mode_colors = require("plugins.feline.colours").vi_mode,
