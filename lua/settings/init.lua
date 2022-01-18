@@ -60,9 +60,6 @@ M.defaults = function()
     opt[name] = value
   end
 
-  vim.g.onebeer = {
-    utils = require("utils"),
-  }
   vim.opt_global.shortmess:remove("F") -- NOTE: Without doing this, autocommands that deal with filetypes prohibit messages from being shown
 
   --  Return to the same position in the file when reopening

@@ -239,6 +239,11 @@ M.load_plugins = function()
   })
 
   use({
+    "rebelot/heirline.nvim",
+    config = require("plugins.heirline").config(),
+  })
+
+  use({
     "norcalli/nvim-colorizer.lua",
     config = require("plugins.colorizer").config(),
   })

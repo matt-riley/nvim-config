@@ -1,13 +1,13 @@
---[[ local au = require("utils.au")
+local au = require("utils.au")
 
 local cmds = {
   tsFile = {
-    { "BufEnter", "*.ts", "lua require('autocmds.typescript')()" },
+    -- { "BufEnter", "*.ts", "lua require('autocmds.typescript')()" },
     {
-      "BufWritePre",
-      "*.controller.ts",
-      "lua require('autocmds.nestjs').controller()",
+      "BufEnter",
+      "*.service.ts,*.controller.ts,*.module.ts,*-listener.ts, *.entity.ts, *.dto.ts",
+      "lua require('autocmds.nestjs').config()",
     },
   },
 }
-au(cmds) ]]
+au(cmds)

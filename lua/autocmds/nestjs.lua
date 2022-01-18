@@ -26,6 +26,15 @@ return M ]]
 
 local M = {}
 
-M.controller = function() end
+M.config = function()
+  local options = {
+    shiftwidth = 4,
+    softtabstop = 4,
+    tabstop = 4,
+  }
 
+  for name, value in pairs(options) do
+    vim.opt[name] = value
+  end
+end
 return M
