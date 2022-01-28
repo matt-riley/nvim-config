@@ -10,6 +10,11 @@ M.config = function()
 
   local overrides = {
     CopilotSuggestion = { fg = default_colours.sumiInk4 },
+    TelescopeBorder = {
+      fg = default_colours.sumiInk4,
+    },
+    TelescopePromptPrefix = { fg = default_colours.waveRed },
+    TelescopeNormal = { bg = default_colours.sumiInk1 },
   }
 
   kanagawa.setup({

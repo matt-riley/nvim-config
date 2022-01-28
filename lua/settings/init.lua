@@ -15,6 +15,7 @@ M.defaults = function()
   cmd("filetype plugin on")
 
   local globals = {
+    autoindent = false,
     background = "dark",
     backspace = "indent,eol,start",
     backup = true,

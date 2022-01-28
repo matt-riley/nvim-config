@@ -238,10 +238,10 @@ M.load_plugins = function()
     config = require("plugins.feline").config(),
   })
 
-  use({
+  --[[ use({
     "rebelot/heirline.nvim",
     config = require("plugins.heirline").config(),
-  })
+  }) ]]
 
   use({
     "norcalli/nvim-colorizer.lua",
@@ -326,6 +326,7 @@ M.load_plugins = function()
 
   use({
     "nathom/filetype.nvim", -- A faster version of filetype.vim
+    config = require("plugins.filetype").config(),
   })
 
   use({

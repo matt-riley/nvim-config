@@ -5,7 +5,7 @@ local cmds = {
     -- { "BufEnter", "*.ts", "lua require('autocmds.typescript')()" },
     {
       "BufEnter",
-      "*.service.ts,*.controller.ts,*.module.ts,*-listener.ts, *.entity.ts, *.dto.ts",
+      "*.service.ts,*.controller.ts,*.module.ts,*-listener.ts,*.entity.ts,*.dto.ts",
       "lua require('autocmds.nestjs').config()",
     },
   },

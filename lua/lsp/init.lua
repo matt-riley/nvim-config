@@ -26,6 +26,7 @@ M.config = function()
   require("lsp.servers.rust").setup()
   require("lsp.servers.sumneko").setup()
   require("lsp.servers.terraformls").setup()
+  require("lsp.servers.toml").setup()
   require("lsp.servers.tsserver").setup()
   require("lsp.servers.yamlls").setup()
 end

@@ -5,34 +5,22 @@ M.setup = function()
   if has_null then
     local b = null_ls.builtins
     local null_config = {
+      debug = true,
       sources = {
         -- diagnostics
-        b.diagnostics.eslint_d.with({
-          condition = function(utils)
-            return utils.root_has_file(".eslintrc.js")
-              or utils.root_has_file(".eslintrc")
-              or utils.root_has_file(".eslintrs.json")
-          end,
-        }),
+        b.diagnostics.eslint,
         b.diagnostics.selene, -- A blazing-fast modern Lua linter written in Rust
         b.diagnostics.hadolint, -- Dockerfile linter, validate inline bash, written in Haskell
         b.diagnostics.shellcheck,
         -- formatting
         b.formatting.stylua,
-        b.formatting.eslint_d.with({
-          condition = function(utils)
-            return utils.root_has_file(".eslintrc.js")
-              or utils.root_has_file(".eslintrc")
-              or utils.root_has_file(".eslintrs.json")
-          end,
+        b.formatting.terraform_fmt.with({
+          filetypes = { "tf", "hcl", "terraform" },
         }),
-        b.formatting.terraform_fmt,
         b.formatting.golines.with({
           args = { "-m", "80", "--chain-split-dots", "-t", "2" },
         }),
-        b.formatting.prettier.with({
-          prefer_local = "node_modules/.bin",
-        }),
+        b.formatting.prettier,
         b.formatting.scalafmt,
         b.formatting.shfmt,
         b.formatting.shellharden,
