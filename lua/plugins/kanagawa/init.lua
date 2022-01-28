@@ -15,6 +15,7 @@ M.config = function()
     },
     TelescopePromptPrefix = { fg = default_colours.waveRed },
     TelescopeNormal = { bg = default_colours.sumiInk1 },
+    TelescopeSelectionCaret = { fg = default_colours.surimiOrange },
   }
 
   kanagawa.setup({
