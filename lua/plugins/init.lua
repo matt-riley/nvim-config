@@ -302,9 +302,8 @@ M.load_plugins = function()
   })
 
   use({
-    "kkoomen/vim-doge", -- (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress. ⚡️🔥
-    config = require("plugins.doge").config(),
-    run = ":call doge#install()",
+    "danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
+    config = require("plugins.neogen").config(),
   })
 
   use({
