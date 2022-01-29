@@ -18,10 +18,12 @@ M.config = function()
   end
 
   require("lsp.servers.bash").setup()
+  require("lsp.servers.crystal").setup()
   require("lsp.servers.css").setup()
   require("lsp.servers.dockerls").setup()
   require("lsp.servers.html").setup()
   require("lsp.servers.jsonls").setup()
+  require("lsp.servers.nim").setup()
   require("lsp.servers.null_ls").setup()
   require("lsp.servers.rust").setup()
   require("lsp.servers.sumneko").setup()
@@ -29,6 +31,7 @@ M.config = function()
   require("lsp.servers.toml").setup()
   require("lsp.servers.tsserver").setup()
   require("lsp.servers.yamlls").setup()
+  require("lsp.servers.zig").setup()
 end
 
 return M

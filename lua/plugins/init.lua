@@ -127,6 +127,12 @@ M.load_plugins = function()
     },
   })
   use({
+    "alaviss/nim.nvim",
+  })
+  use({
+    "vim-crystal/vim-crystal",
+  })
+  use({
     "windwp/nvim-autopairs",
     config = require("plugins.autopairs").config(),
   })

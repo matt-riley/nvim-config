@@ -24,6 +24,9 @@ M.setup = function()
         b.formatting.scalafmt,
         b.formatting.shfmt,
         b.formatting.shellharden,
+        b.formatting.nimpretty,
+        b.formatting.crystal_format,
+        b.formatting.zigfmt,
       },
       on_attach = function(client)
         if client.resolved_capabilities.document_formatting then

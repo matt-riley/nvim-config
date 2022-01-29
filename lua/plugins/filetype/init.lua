@@ -9,6 +9,7 @@ M.config = function()
   filetype.setup({
     overrides = {
       extensions = {
+        cr = "crystal",
         tf = "terraform",
       },
     },
