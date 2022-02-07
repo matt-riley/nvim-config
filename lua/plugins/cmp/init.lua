@@ -10,7 +10,9 @@ M.config = function()
   local autopairs = require("nvim-autopairs.completion.cmp")
   cmp.setup({
     formatting = {
-      format = lspkind.cmp_format(),
+      format = lspkind.cmp_format({
+        mode = "symbol_text", -- show only symbol annotations
+      }),
     },
     snippet = {
       expand = function(args)

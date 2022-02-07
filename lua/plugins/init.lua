@@ -139,6 +139,7 @@ M.load_plugins = function()
 
   use({
     "onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
+    commit = "44f686c71e4bf515b2878e10445cb8ed7f351488",
   })
 
   -- use({
