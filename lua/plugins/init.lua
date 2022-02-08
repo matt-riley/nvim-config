@@ -84,6 +84,7 @@ M.load_plugins = function()
     "kyazdani42/nvim-tree.lua", -- A file explorer tree for neovim written in lua
     config = require("plugins.nvimtree").config(),
     requires = "kyazdani42/nvim-web-devicons",
+    commit = "99d65afd6ef05cc57f835451126e5c44db03cef1",
   })
   use({
     "folke/which-key.nvim",
