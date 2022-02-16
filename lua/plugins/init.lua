@@ -126,6 +126,7 @@ M.load_plugins = function()
     requires = {
       "rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
     },
+    config = require("plugins.luasnip").config(),
   })
   use({
     "alaviss/nim.nvim",
@@ -140,7 +141,6 @@ M.load_plugins = function()
 
   use({
     "onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
-    commit = "44f686c71e4bf515b2878e10445cb8ed7f351488",
   })
 
   -- use({
@@ -207,10 +207,6 @@ M.load_plugins = function()
   use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
   use({ "numToStr/Comment.nvim", config = require("plugins.comment").config() }) -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 
-  --[[ use({
-    "nvim-treesitter/nvim-tree-docs", -- Code documentation built with treesitter
-  }) ]]
-
   -- Org-mode
   use({
     "nvim-orgmode/orgmode", -- Orgmode clone written in Lua for Neovim 0.5+.
@@ -274,6 +270,11 @@ M.load_plugins = function()
   use({
     "anuvyklack/pretty-fold.nvim", -- Foldtext customization and folded region preview in Neovim.
     config = require("plugins.pretty-fold").config(),
+  })
+
+  use({
+    "folke/twilight.nvim", -- 🌅 Twilight is a Lua plugin for Neovim 0.5 that dims inactive portions of the code you're editing using TreeSitter.
+    config = require("plugins.twilight").config(),
   })
 
   -- Others

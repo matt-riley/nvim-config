@@ -1,32 +1,7 @@
---[[ local Job = require("plenary.job")
-local M = {}
-M.on_enter = function()
-  local tmux = os.getenv("TMUX")
-  if not tmux then
-    return
-  end
-  Job
-    :new({
-      command = "tmux",
-      args = {
-        "send-keys",
-        "-t",
-        "right",
-        "echo 'nestjs'",
-        "Enter",
-      },
-      on_exit = function()
-        print("done")
-      end,
-    })
-    :sync()
-end
-
-return M ]]
-
 local M = {}
 
 M.config = function()
+  -- specific vim options for the nightmare that is nestjs
   local options = {
     shiftwidth = 4,
     softtabstop = 4,
@@ -36,5 +11,25 @@ M.config = function()
   for name, value in pairs(options) do
     vim.opt[name] = value
   end
+
+  -- nestjs snippets
+  local has_luasnip, luasnip = require("luasnip")
+
+  if not has_luasnip then
+    return
+  end
+
+  --[[ if not luasnip.snippets.typescript then
+    local snips = { typescript = require("snippets.nestjs") }
+    vim.tbl_deep_extend("force", luasnip.snippets, snips)
+  end ]]
+  -- luasnip.snippets.typescript = {
+  --   s({
+  --     trig = "sts",
+  --     name = "Service Test",
+  --     dscr = "Creates the boilerplate for unit testing a service",
+  --   }),
+  -- }
 end
+
 return M

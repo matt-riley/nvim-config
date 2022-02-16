@@ -2,8 +2,9 @@ local M = {}
 
 M.config = function()
   local has_cmp, cmp = pcall(require, "cmp")
+  local has_luasnip, luasnip = pcall(require, "luasnip")
 
-  if not has_cmp then
+  if not has_cmp or not has_luasnip then
     return
   end
   local lspkind = require("lspkind")
@@ -11,17 +12,29 @@ M.config = function()
   cmp.setup({
     formatting = {
       format = lspkind.cmp_format({
-        mode = "symbol_text", -- show only symbol annotations
+        mode = "symbol", -- show only symbol annotations
       }),
     },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
+      ["<C-k>"] = cmp.mapping(function()
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        end
+      end, { "i", "s" }),
+      ["<C-j>"] = cmp.mapping(function()
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        end
+      end, { "i", "s" }),
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),

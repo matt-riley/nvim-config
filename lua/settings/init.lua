@@ -55,6 +55,7 @@ M.defaults = function()
     visualbell = true,
     wildmenu = true,
     writebackup = true,
+    guifont = "MonoLisa Nerd Font Mono",
   }
 
   for name, value in pairs(globals) do

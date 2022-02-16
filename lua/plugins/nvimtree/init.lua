@@ -51,7 +51,7 @@ M.config = function()
     },
     filters = { custom = { ".git" } },
     ignore_ft_on_setup = { "alpha", "startify", "dashboard" },
-    open_on_setup = true,
+    open_on_setup = false,
     update_cwd = true,
     update_focused_file = { enabled = true, update_cwd = true },
     view = { side = "right" },
