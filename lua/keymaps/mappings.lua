@@ -9,13 +9,11 @@ local neogen_mappings = require("plugins.neogen").keymaps
 local nvimtree_mappings = require("plugins.nvimtree").keymaps
 local package_info = require("plugins.package-info").keymaps
 local telescope_mappings = require("plugins.telescope").keymaps
-local test_runner_mappings = require("plugins.vim-test").keymaps
 local trouble_mappings = require("plugins.trouble").keymaps
 local ts_lsp_mappings = require("plugins.lsp-ts-utils").keymaps
 local twilight_mappings = require("plugins.twilight").keymaps
 
 local extend_table = vim.tbl_deep_extend
-local has_notify, notify = pcall(require, "notify")
 
 local has_mappings, wk_mappings = pcall(
   extend_table,
@@ -31,7 +29,6 @@ local has_mappings, wk_mappings = pcall(
   nvimtree_mappings,
   package_info,
   telescope_mappings,
-  test_runner_mappings,
   trouble_mappings,
   ts_lsp_mappings,
   twilight_mappings
@@ -40,11 +37,5 @@ local has_mappings, wk_mappings = pcall(
 if has_mappings then
   return wk_mappings
 else
-  if has_notify then
-    notify(
-      table.concat(wk_mappings, "\n"),
-      "error",
-      { title = "Error with the keymaps" }
-    )
-  end
+  vim.notify(table.concat(wk_mappings, "\n"), "error", { title = "Error with the keymaps" })
 end

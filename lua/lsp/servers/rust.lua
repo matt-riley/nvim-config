@@ -1,20 +1,12 @@
 local M = {}
 
 M.setup = function()
-  local has_lsp_install_server, lsp_install_server = pcall(
-    require,
-    "nvim-lsp-installer.servers"
-  )
+  local has_lsp_install_server, lsp_install_server = pcall(require, "nvim-lsp-installer.servers")
   if not has_lsp_install_server then
     return
   end
-  local server_available, requested_server = lsp_install_server.get_server(
-    "rust_analyzer"
-  )
-  vim.notify(
-    server_available and "rust-analyzer server available"
-      or "rust-analyzer server not available"
-  )
+  local server_available, requested_server = lsp_install_server.get_server("rust_analyzer")
+
   if server_available then
     requested_server:on_ready(function()
       local on_attach = require("lsp.on_attach")

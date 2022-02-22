@@ -13,10 +13,7 @@ M.config = function()
       local indicator, text, chunks
       local abs_r_idx = math.abs(r_idx)
       if abs_r_idx > 1 then
-        indicator = ("%d%s"):format(
-          abs_r_idx,
-          sfw ~= (r_idx > 1) and "▲" or "▼"
-        )
+        indicator = ("%d%s"):format(abs_r_idx, sfw ~= (r_idx > 1) and "▲" or "▼")
       elseif abs_r_idx == 1 then
         indicator = sfw ~= (r_idx == 1) and "▲" or "▼"
       else

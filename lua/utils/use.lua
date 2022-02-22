@@ -6,13 +6,10 @@ local use = function(conf)
     new_conf = conf
   end
   new_conf.run = function(plugin)
-    local has_notify, notify = pcall(require, "notify")
-    if has_notify then
-      notify(table.concat(plugin.messages, "\n"), "info", {
-        title = plugin.short_name,
-        timeout = 2000,
-      })
-    end
+    vim.notify(table.concat(plugin.messages, "\n"), "info", {
+      title = plugin.short_name,
+      timeout = 2000,
+    })
     if conf.run then
       return conf.run
     end

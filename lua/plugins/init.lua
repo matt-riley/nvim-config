@@ -1,13 +1,9 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
-local au = require("utils").au
 local M = {}
 
 M.install_packer = function()
-  local directory = string.format(
-    "%s/site/pack/packer/start/",
-    fn.stdpath("data")
-  )
+  local directory = string.format("%s/site/pack/packer/start/", fn.stdpath("data"))
   fn.mkdir(directory, "p")
   local output = fn.system(
     (string.format(
@@ -28,37 +24,16 @@ M.load_plugins = function()
     M.install_packer()
   end
 
-  local cmds = {
-    packer_user_config = {
-      {
-        "BufWritePost",
-        "lua/plugins/init.lua",
-        "source <afile> | PackerSync",
-      },
+  local config = {
+    display = {
+      open_fn = function()
+        return require("packer.util").float({ border = "rounded" })
+      end,
     },
   }
+  packer.init(config)
 
-  au(cmds)
-  local has_notify = pcall(require, "notify")
-  if has_notify then
-    local config = {
-      display = {
-        non_interactive = true,
-      },
-    }
-    packer.init(config)
-  else
-    local config = {
-      display = {
-        open_fn = function()
-          return require("packer.util").float({ border = "rounded" })
-        end,
-      },
-    }
-    packer.init(config)
-  end
-
-  local use = require("utils").use
+  local use = require("packer").use
   packer.reset()
 
   -- important plugins required either for the config or other plugins to work
@@ -87,8 +62,8 @@ M.load_plugins = function()
     commit = "99d65afd6ef05cc57f835451126e5c44db03cef1",
   })
   use({
-    "folke/which-key.nvim",
-  }) -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+    "folke/which-key.nvim", -- Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+  })
 
   -- LSP stuff
   use({
@@ -143,12 +118,8 @@ M.load_plugins = function()
     "onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
   })
 
-  -- use({
-  -- "glepnir/lspsaga.nvim",
-  -- }) -- A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.
   use({
     "tami5/lspsaga.nvim", -- till glepnir goes back online
-    branch = "nvim6.0",
     config = require("plugins.lspsaga").config(),
   })
   use({
@@ -171,10 +142,6 @@ M.load_plugins = function()
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   })
-
-  --[[ use({
-    "b0o/schemastore.nvim", -- A Neovim Lua plugin providing access to the SchemaStore catalog.
-  }) ]]
 
   -- Telescope
   use({
@@ -205,23 +172,15 @@ M.load_plugins = function()
     "windwp/nvim-ts-autotag", -- Use treesitter to auto close and auto rename html tag
   })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
-  use({ "numToStr/Comment.nvim", config = require("plugins.comment").config() }) -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
-
-  -- Org-mode
   use({
-    "nvim-orgmode/orgmode", -- Orgmode clone written in Lua for Neovim 0.5+.
-    config = require("plugins.orgmode").config(),
+    "numToStr/Comment.nvim", -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+    config = require("plugins.comment").config(),
   })
-
-  -- use({
-  --   "nvim-neorg/neorg", -- Modernity meets insane extensibility. The future of organizing your life in Neovim.
-  --   config = require("plugins.neorg").config(),
-  -- })
 
   --  UI stuff
   use({
     "lewis6991/gitsigns.nvim", -- Git signs written in pure lua
-    requires = { "nvim-lua/plenary" },
+    requires = { "nvim-lua/plenary.nvim" },
     config = require("plugins.gitsigns").config(),
   })
   use({
@@ -232,7 +191,6 @@ M.load_plugins = function()
   use({
     "noib3/cokeline.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    branch = "master",
     config = require("plugins.cokeline").config(),
   })
 
@@ -241,11 +199,6 @@ M.load_plugins = function()
     requires = { "kyazdani42/nvim-web-devicons" },
     config = require("plugins.feline").config(),
   })
-
-  --[[ use({
-    "rebelot/heirline.nvim",
-    config = require("plugins.heirline").config(),
-  }) ]]
 
   use({
     "norcalli/nvim-colorizer.lua",
@@ -277,6 +230,11 @@ M.load_plugins = function()
     config = require("plugins.twilight").config(),
   })
 
+  use({
+    "karb94/neoscroll.nvim", -- Smooth scrolling neovim plugin written in lua
+    config = require("plugins.neoscroll").config(),
+  })
+
   -- Others
   use({
     "goolord/alpha-nvim", -- a lua powered greeter like vim-startify / dashboard-nvim
@@ -292,10 +250,6 @@ M.load_plugins = function()
   use({
     "ahmedkhalf/project.nvim", -- The superior project management solution for neovim.
     config = require("plugins.project").config(),
-  })
-
-  use({
-    "jghauser/mkdir.nvim", -- This neovim plugin creates missing folders on save.
   })
 
   use({
@@ -316,23 +270,6 @@ M.load_plugins = function()
   })
 
   use({
-    "vim-test/vim-test", -- Run your tests at the speed of thought
-    requires = { "tpope/vim-projectionist" },
-    config = require("plugins.vim-test").config(),
-  })
-
-  use({
-    "rcarriga/vim-ultest", -- The ultimate testing plugin for (Neo)Vim
-    requires = { "vim-test/vim-test" },
-    run = ":UpdateRemotePlugins",
-  })
-
-  use({
-    "mfussenegger/nvim-dap", -- Debug Adapter Protocol client implementation for Neovim (>= 0.5)
-    config = require("plugins.dap").config(),
-  })
-
-  use({
     "nathom/filetype.nvim", -- A faster version of filetype.vim
     config = require("plugins.filetype").config(),
   })
@@ -346,6 +283,10 @@ M.load_plugins = function()
     "monaqa/dial.nvim", -- enhanced increment/decrement plugin for Neovim.
     config = require("plugins.dial").config(),
   })
+
+  use({ "dstein64/vim-startuptime" })
+  use({ "lewis6991/impatient.nvim" })
+
   --  theme
 
   use({

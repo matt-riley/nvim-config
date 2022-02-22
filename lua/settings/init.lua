@@ -67,8 +67,11 @@ M.defaults = function()
   --  Return to the same position in the file when reopening
   cmd([[
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
-    ]])
+  ]])
 
+  cmd([[
+    let g:python3_host_prog = 'python3'
+  ]])
   local keymap = vim.api.nvim_set_keymap
   local opts = { noremap = true, silent = true }
   keymap("v", "J", ":m '>+1<CR>gv=gv", opts)

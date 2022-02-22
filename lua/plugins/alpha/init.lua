@@ -19,10 +19,7 @@ M.config = function()
     dashboard.button("<Leader>fr", "  Recently Used Files"),
   }
 
-  local plugin_dir = string.format(
-    "%s/site/pack/packer/start/",
-    vim.fn.stdpath("data")
-  )
+  local plugin_dir = string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))
   local total_plugins = vim.fn.len(vim.fn.globpath(plugin_dir, "*", 0, 1))
   dashboard.section.footer.val = "Loaded " .. total_plugins .. " plugins  "
   alpha.setup(dashboard.opts)

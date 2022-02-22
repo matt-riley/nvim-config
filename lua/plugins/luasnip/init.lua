@@ -28,10 +28,7 @@ M.config = function()
             insert(2, "https://"),
             insert(3, "Project title"),
             insert(4, "One Paragraph of project description goes here"),
-            insert(
-              5,
-              "What things you need to install the software and how to install them"
-            ),
+            insert(5, "What things you need to install the software and how to install them"),
             insert(
               6,
               "A step by step series of examples that tell you how to get a development env running"

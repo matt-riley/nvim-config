@@ -17,8 +17,7 @@ local components = {
   },
   devicon = {
     text = function(buffer)
-      return (is_picking_focus() or is_picking_close())
-          and buffer.pick_letter .. " "
+      return (is_picking_focus() or is_picking_close()) and buffer.pick_letter .. " "
         or buffer.devicon.icon
     end,
     hl = {
@@ -29,10 +28,7 @@ local components = {
   },
   diagnostics = {
     text = function(buffer)
-      return (
-          buffer.diagnostics.errors ~= 0
-          and "  " .. buffer.diagnostics.errors
-        )
+      return (buffer.diagnostics.errors ~= 0 and "  " .. buffer.diagnostics.errors)
         or (buffer.diagnostics.warnings ~= 0 and "  " .. buffer.diagnostics.warnings)
         or ""
     end,
@@ -59,10 +55,7 @@ local components = {
           or nil
       end,
       style = function(buffer)
-        return (
-            (buffer.is_focused and buffer.diagnostics.errors ~= 0)
-            and "bold,italic"
-          )
+        return ((buffer.is_focused and buffer.diagnostics.errors ~= 0) and "bold,italic")
           or (buffer.is_focused and "bold")
           or (buffer.diagnostics.errors ~= 0 and "underline")
           or nil

@@ -13,11 +13,18 @@ M.config = function()
   end
 
   -- nestjs snippets
-  local has_luasnip, luasnip = require("luasnip")
+  --[[ local has_luasnip, luasnip = require("luasnip")
 
   if not has_luasnip then
     return
   end
+
+  luasnip.snippets["typescript"] = luasnip.snippets["typescript"] or {}
+  vim.tbl_deep_extend(
+    "force",
+    luasnip.snippets["typescript"],
+    require("snippets.nestjs")
+  ) ]]
 
   --[[ if not luasnip.snippets.typescript then
     local snips = { typescript = require("snippets.nestjs") }
