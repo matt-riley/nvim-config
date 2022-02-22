@@ -295,7 +295,7 @@ M.load_plugins = function()
   })
 
   -- Keep things up to date
-  packer.sync()
+  -- packer.sync()
 end
 
 return M

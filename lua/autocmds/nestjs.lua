@@ -2,7 +2,7 @@ local M = {}
 
 M.config = function()
   -- specific vim options for the nightmare that is nestjs
-  local options = {
+  --[[ local options = {
     shiftwidth = 4,
     softtabstop = 4,
     tabstop = 4,
@@ -10,7 +10,7 @@ M.config = function()
 
   for name, value in pairs(options) do
     vim.opt[name] = value
-  end
+  end ]]
 
   -- nestjs snippets
   --[[ local has_luasnip, luasnip = require("luasnip")
