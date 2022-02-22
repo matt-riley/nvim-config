@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- [neovim](https://github.com/neovim/neovim) >= 0.5
+- [neovim](https://github.com/neovim/neovim) >= 0.6
 
 <!-- ## Plugins
 
