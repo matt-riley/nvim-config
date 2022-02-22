@@ -8,10 +8,13 @@ M.setup = function()
       debug = true,
       sources = {
         -- diagnostics
+        b.diagnostics.actionlint,
+        b.diagnostics.codespell,
         b.diagnostics.eslint,
         b.diagnostics.selene, -- A blazing-fast modern Lua linter written in Rust
         b.diagnostics.hadolint, -- Dockerfile linter, validate inline bash, written in Haskell
         b.diagnostics.shellcheck,
+        b.diagnostics.yamllint,
         -- formatting
         b.formatting.stylua,
         b.formatting.terraform_fmt.with({
