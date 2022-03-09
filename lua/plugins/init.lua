@@ -226,6 +226,12 @@ M.load_plugins = function()
   })
 
   use({
+    "narutoxy/dim.lua", -- Dim unused words in neovim
+    requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+    config = require("plugins.dim").config(),
+  })
+
+  use({
     "folke/twilight.nvim", -- 🌅 Twilight is a Lua plugin for Neovim 0.5 that dims inactive portions of the code you're editing using TreeSitter.
     config = require("plugins.twilight").config(),
   })

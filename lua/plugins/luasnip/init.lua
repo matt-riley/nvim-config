@@ -22,7 +22,7 @@ M.config = function()
       snippet(
         "rdm",
         fmt(
-          "![{}]({})\n\n#{}\n\n{}\n\n## Getting Started\n\nThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\n\n### Prerequisites\n\n{}\n\n### Installing\n\n{}\n\n## Running the tests\n\n{}",
+          "![{}]({})\n\n# {}\n\n{}\n\n## Getting Started\n\nThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\n\n### Prerequisites\n\n{}\n\n### Installing\n\n{}\n\n## Running the tests\n\n{}",
           {
             insert(1),
             insert(2, "https://"),
@@ -42,7 +42,7 @@ M.config = function()
       snippet(
         "preq",
         fmt(
-          "local has_{}, {} = require('{}')\n\nif not has_{} then\n  return\nend\n\n",
+          "local has_{}, {} = pcall(require, '{}')\n\nif not has_{} then\n  return\nend\n\n",
           { insert(1), rep(1), rep(1), rep(1) }
         )
       ),
