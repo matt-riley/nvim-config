@@ -17,15 +17,15 @@ M.config = function()
       new_buffers_position = "next",
     },
     default_hl = {
-      focused = {
-        fg = colours.normal_fg,
-        bg = colours.column_bg,
-        style = "bold",
-      },
-      unfocused = {
-        fg = colours.comment_fg,
-        bg = colours.column_bg,
-      },
+      fg = function(buff)
+        return buff.is_focused and colours.normal_fg or colours.comment_fg
+      end,
+      bg = function()
+        return colours.column_bg
+      end,
+      style = function(buff)
+        return buff.is_focused and "bold" or "italic"
+      end,
     },
     components = {
       components.double_space,

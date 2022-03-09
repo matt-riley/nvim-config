@@ -287,6 +287,14 @@ M.load_plugins = function()
   use({ "dstein64/vim-startuptime" })
   use({ "lewis6991/impatient.nvim" })
 
+  use({
+    "bennypowers/nvim-regexplainer",
+    config = require("plugins.regexplainer").config(),
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+  })
   --  theme
 
   use({
