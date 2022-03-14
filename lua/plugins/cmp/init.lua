@@ -55,7 +55,7 @@ M.config = function()
     },
   })
 
-  cmp.event:on("confirm_done", autopairs.on_confirm_done({ map_char = { tex = "" } }))
+  cmp.event:on("confirm_done", autopairs.on_confirm_done())
   require("cmp_nvim_lsp").setup()
 end
 return M
