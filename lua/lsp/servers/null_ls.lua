@@ -24,6 +24,7 @@ M.setup = function()
           args = { "-m", "80", "--chain-split-dots", "-t", "2" },
         }),
         b.formatting.prettier,
+        b.formatting.rufo,
         b.formatting.scalafmt,
         b.formatting.shfmt,
         b.formatting.shellharden,

@@ -20,8 +20,8 @@ M.config = function()
       fg = function(buff)
         return buff.is_focused and colours.normal_fg or colours.comment_fg
       end,
-      bg = function()
-        return colours.column_bg
+      bg = function(buff)
+        return buff.is_focused and colours.normal_bg or colours.column_bg
       end,
       style = function(buff)
         return buff.is_focused and "bold" or "italic"
@@ -29,6 +29,7 @@ M.config = function()
     },
     components = {
       components.double_space,
+      -- components.left_corner,
       components.separator,
       components.space,
       components.devicon,
@@ -40,6 +41,7 @@ M.config = function()
       components.space,
       components.close_or_unsaved,
       components.double_space,
+      -- components.right_corner,
     },
   })
 end

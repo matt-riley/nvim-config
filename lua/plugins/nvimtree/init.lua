@@ -7,11 +7,11 @@ M.config = function()
   end
   local g = vim.g
 
-  g.nvim_tree_disable_window_picker = 1
+  -- g.nvim_tree_disable_window_picker = 1
   g.nvim_tree_git_hl = 1
   g.nvim_tree_respect_buf_cwd = 1
   g.nvim_tree_indent_markers = 1
-  g.nvim_tree_quit_on_open = 1
+  -- g.nvim_tree_quit_on_open = 1
   g.nvim_tree_root_folder_modifier = ":t"
   g.nvim_tree_show_icons = {
     git = 1,
@@ -44,7 +44,16 @@ M.config = function()
   }
 
   nvim_tree.setup({
+    actions = {
+      open_file = {
+        quit_on_open = true,
+        window_picker = {
+          enabled = true,
+        },
+      },
+    },
     auto_close = true,
+    disable_netrw = true,
     diagnostics = {
       enabled = true,
       icons = { hint = "", info = "", warning = "", error = "" },
@@ -54,7 +63,7 @@ M.config = function()
     open_on_setup = false,
     update_cwd = true,
     update_focused_file = { enabled = true, update_cwd = true },
-    view = { side = "right" },
+    view = { side = "right", width = 30 },
   })
 end
 

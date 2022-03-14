@@ -44,6 +44,18 @@ local components = {
   double_space = {
     text = "  ",
   },
+  left_corner = {
+    text = "",
+    fg = colours.tab_bg,
+    bg = colours.normal_bg,
+  },
+  right_corner = {
+    text = "",
+    fg = function(buffer)
+      return buffer.is_focused and "#658594"
+    end,
+    bg = colours.normal_bg,
+  },
   filename = {
     text = function(buffer)
       return buffer.filename

@@ -1,13 +1,9 @@
-local au = require("utils.au")
+local nestJsGroup = vim.api.nvim_create_augroup("NestJsGroup", { clear = true })
 
-local cmds = {
-  tsFile = {
-    -- { "BufEnter", "*.ts", "lua require('autocmds.typescript')()" },
-    {
-      "BufEnter",
-      "*.service.ts,*.service.spec.ts,*.controller.ts,*.module.ts,*-listener.ts,*.entity.ts,*.dto.ts",
-      "lua require('autocmds.nestjs').config()",
-    },
-  },
-}
-au(cmds)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.service.ts,*.service.spec.ts,*.controller.ts,*.module.ts,*-listener.ts,*.entity.ts,*.dto.ts",
+  group = nestJsGroup,
+  callback = function()
+    require("autocmds.nestjs").config()
+  end,
+})
