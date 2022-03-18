@@ -49,10 +49,10 @@ end
 M.keymaps = {
   ["<leader>b"] = {
     name = "Cokeline Buffers",
+    c = { "<Plug>(cokeline-pick-close)", "Pick Close" },
+    f = { "<Plug>(cokeline-pick-focus)", "Pick Focus" },
     n = { "<Plug>(cokeline-focus-next)", "Next" },
     p = { "<Plug>(cokeline-focus-prev)", "Prev" },
-    f = { "<Plug>(cokeline-pick-focus)", "Pick Focus" },
-    c = { "<Plug>(cokeline-pick-close)", "Pick Close" },
   },
 }
 

@@ -188,7 +188,7 @@ M.load_plugins = function()
   })
 
   use({
-    "noib3/cokeline.nvim",
+    "noib3/nvim-cokeline",
     requires = "kyazdani42/nvim-web-devicons",
     config = require("plugins.cokeline").config(),
   })

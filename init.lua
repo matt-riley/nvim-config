@@ -5,24 +5,25 @@ if has_impatient then
 end
 
 local builtins = {
-  "gzip",
-  "zip",
-  "zipPlugin",
-  "tar",
-  "tarPlugin",
+  "2html_plugin",
   "getscript",
   "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
+  "gzip",
+  "logiPat",
   "matchit",
   "matchparen",
-  "logiPat",
-  "rrhelper",
   "netrw",
+  "netrwFileHandlers",
   "netrwPlugin",
   "netrwSettings",
-  "netrwFileHandlers",
+  "rrhelper",
+  "spellfile_plugin",
+  "tar",
+  "tarPlugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
 }
 
 for _, plugin in ipairs(builtins) do
