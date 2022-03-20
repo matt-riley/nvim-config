@@ -72,6 +72,9 @@ M.config = function()
         filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf" },
         find_cmd = "rg",
       },
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({}),
+      },
     },
   })
 
@@ -79,6 +82,7 @@ M.config = function()
   pcall(require("telescope").load_extension, "fzf")
   pcall(require("telescope").load_extension, "projects")
   pcall(require("telescope").load_extension, "zoxide")
+  pcall(require("telescope").load_extension, "ui-select")
 end
 
 M.keymaps = {

@@ -14,7 +14,7 @@ M.defaults = function()
   if has_wk then
     wk.setup()
     local wk_mappings = require("keymaps.mappings")
-    return wk.register(wk_mappings, opt)
+    wk.register(wk_mappings, opt)
   else
     -- NvimTree
     nvim_keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opt)

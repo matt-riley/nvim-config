@@ -1,8 +1,11 @@
 local ls = require("luasnip")
+local i = ls.insert_node
+local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
 local snippets = {
-  ls.parser.parse_snippet(
-    "req",
-    "local has_$1, $1 = pcall(require, $1)\nif not has_$1 then\n  return\nend"
+  preq = fmt(
+    "local has_{}, {} = pcall(require, '{}')\n\nif not has_{} then\n  return\nend\n\n",
+    { i(1), rep(1), rep(1), rep(1) }
   ),
 }
 
