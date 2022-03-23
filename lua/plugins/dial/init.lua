@@ -1,28 +1,35 @@
 local M = {}
 
 M.config = function()
-  local has_dial, dial = pcall(require, "dial")
+  local has_dial = pcall(require, "dial")
   if not has_dial then
     return
   end
 
-  -- Boolean flipping
-  dial.augends["custom#boolean"] = dial.common.enum_cyclic({
-    name = "boolean",
-    desc = "Flip a boolean between true and false",
-    strlist = { "true", "false" },
+  local config = require("dial.config")
+  local augend = require("dial.augend")
+
+  config.augends:register_group({
+    default = {
+      augend.integer.alias.decimal,
+      augend.integer.alias.hex,
+      augend.date.alias["%Y/%m/%d"],
+      augend.date.alias["%Y-%m-%d"],
+      augend.date.alias["%m/%d"],
+      augend.date.alias["%H:%M"],
+      augend.constant.alias.ja_weekday_full,
+      augend.constant.alias.bool,
+    },
   })
-  table.insert(dial.config.searchlist.normal, "custom#boolean")
-
   -- Keymaps - We add repeat support to this
-  vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>(dial-increment)", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", { silent = true })
+  vim.keymap("n", "<C-a>", "<Plug>(dial-increment)", { silent = true })
+  vim.keymap("n", "<C-x>", "<Plug>(dial-decrement)", { silent = true })
 
-  vim.api.nvim_set_keymap("v", "<C-a>", "<Plug>(dial-increment)", { silent = true })
-  vim.api.nvim_set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", { silent = true })
+  vim.keymap("v", "<C-a>", "<Plug>(dial-increment)", { silent = true })
+  vim.keymap("v", "<C-x>", "<Plug>(dial-decrement)", { silent = true })
 
-  vim.api.nvim_set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", { silent = true })
-  vim.api.nvim_set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", { silent = true })
+  vim.keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", { silent = true })
+  vim.keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", { silent = true })
 end
 
 M.keymaps = {}
