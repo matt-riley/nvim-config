@@ -52,7 +52,6 @@ M.config = function()
         },
       },
     },
-    auto_close = true,
     disable_netrw = true,
     diagnostics = {
       enabled = true,
