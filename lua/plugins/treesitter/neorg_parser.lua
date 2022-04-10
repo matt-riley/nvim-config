@@ -7,14 +7,21 @@ M.create_parser = function()
   end
   local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-  parser_config.norg = {
+  parser_config.norg_meta = {
     install_info = {
-      url = "https://github.com/nvim-neorg/tree-sitter-norg",
+      url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+      files = { "src/parser.c" },
       branch = "main",
-      files = { "src/parser.c", "src/scanner.cc" },
     },
   }
-  return parser_config.norg
+
+  parser_config.norg_table = {
+    install_info = {
+      url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+      files = { "src/parser.c" },
+      branch = "main",
+    },
+  }
 end
 
 return M

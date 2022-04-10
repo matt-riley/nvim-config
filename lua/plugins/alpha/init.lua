@@ -17,6 +17,7 @@ M.config = function()
     dashboard.button("<Leader>ff", "  Find File          "),
     dashboard.button("<Leader>fp", "  Recent Projects    "),
     dashboard.button("<Leader>fr", "  Recently Used Files"),
+    dashboard.button("<Leader>fc", "  Config Files"),
   }
 
   local plugin_dir = string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))

@@ -8,7 +8,7 @@ M.setup = function()
       debug = true,
       sources = {
         -- diagnostics
-        b.diagnostics.actionlint,
+        -- b.diagnostics.actionlint,
         b.diagnostics.codespell,
         b.diagnostics.eslint,
         b.diagnostics.selene, -- A blazing-fast modern Lua linter written in Rust

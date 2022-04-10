@@ -6,7 +6,7 @@ M.config = function()
     return
   end
 
-  require("plugins.treesitter.org_parser").create_parser()
+  require("plugins.treesitter.neorg_parser").create_parser()
 
   treesitter.setup({
     playground = {
@@ -27,27 +27,47 @@ M.config = function()
         show_help = "?",
       },
     },
-    autotag = {
+    autotag = { enable = true },
+
+    rainbow = {
       enable = true,
-      filetypes = {
-        "html",
-        "javascript",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte",
-        "vue",
-        "astro",
-        "markdown",
-      },
+      extended_mode = true,
+      max_file_lines = nil,
     },
 
     context_commentstring = { enable = true },
 
-    ensure_installed = "maintained", -- one of 'all', 'language', or a list of languages
+    ensure_installed = {
+      "norg",
+      "norg_meta",
+      "norg_table",
+      "astro",
+      "bash",
+      "css",
+      "dockerfile",
+      "go",
+      "gomod",
+      "gowork",
+      "graphql",
+      "html",
+      "javascript",
+      "jsdoc",
+      "json",
+      "lua",
+      "ruby",
+      "rust",
+      "scala",
+      "scss",
+      "svelte",
+      "toml",
+      "tsx",
+      "typescript",
+      "yaml",
+      "zig",
+    },
 
     highlight = {
       enable = true, -- false will disable the whole extension
-      additional_vim_regex_highlighting = { "org" },
     },
 
     incremental_selection = {
@@ -78,9 +98,6 @@ M.config = function()
       },
     },
 
-    --[[ tree_docs = {
-      enable = true,
-    }, ]]
     textobjects = {
       select = {
         enable = true,

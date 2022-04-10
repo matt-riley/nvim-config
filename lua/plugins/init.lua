@@ -158,8 +158,6 @@ M.load_plugins = function()
     "jvgrootveld/telescope-zoxide", -- An extension for telescope.nvim that allows you operate zoxide within Neovim.
   })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
-  use({ "nvim-treesitter/playground" })
-
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
@@ -177,7 +175,8 @@ M.load_plugins = function()
     "numToStr/Comment.nvim", -- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
     config = require("plugins.comment").config(),
   })
-
+  use({ "nvim-treesitter/playground" })
+  use({ "p00f/nvim-ts-rainbow" })
   --  UI stuff
   use({
     "lewis6991/gitsigns.nvim", -- Git signs written in pure lua
@@ -240,6 +239,12 @@ M.load_plugins = function()
   use({
     "karb94/neoscroll.nvim", -- Smooth scrolling neovim plugin written in lua
     config = require("plugins.neoscroll").config(),
+  })
+
+  -- Neorg
+  use({
+    "nvim-neorg/neorg",
+    config = require("plugins.neorg").config(),
   })
 
   -- Others

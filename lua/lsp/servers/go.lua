@@ -5,7 +5,7 @@ M.setup = function()
   if not has_lsp_install_server then
     return
   end
-  local server_available, requested_server = lsp_install_server.get_server("yamlls")
+  local server_available, requested_server = lsp_install_server.get_server("gopls")
 
   if server_available then
     requested_server:on_ready(function()
@@ -20,15 +20,6 @@ M.setup = function()
         end,
         capabilities = require("lsp.capabilities"),
         flags = { debounce_text_changes = 150 },
-        settings = {
-          yaml = {
-            schemas = {
-              ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-              ["https://json.schemastore.org/dependabot-2.0"] = "/.github/dependabot.yml",
-              ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/.gitlab-ci.yml",
-            },
-          },
-        },
       }
 
       requested_server:setup(opts)

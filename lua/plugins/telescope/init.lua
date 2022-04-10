@@ -85,10 +85,38 @@ M.config = function()
   pcall(require("telescope").load_extension, "ui-select")
 end
 
+M.reload = function()
+  local function get_module_name(s)
+    local module_name = s:gsub("%.lua", "")
+    module_name = module_name:gsub("%./", ".")
+    module_name = module_name:gsub("%.init", "")
+    return module_name
+  end
+
+  local prompt_title = "Neovim Modules"
+  local path = "~/.config/nvim/lua"
+  local opts = {
+    prompt_title = prompt_title,
+    cwd = path,
+    attach_mappings = function(_, map)
+      map("i", "<c-r>", function(_)
+        local entry = require("telescope.actions.state").get_selected_entry()
+        local name = get_module_name(entry.value)
+        print(vim.inspect(name))
+        R(name)
+        vim.notify("RELOADED", "info", { title = name })
+      end)
+      return true
+    end,
+  }
+  require("telescope.builtin").git_files(opts)
+end
+
 M.keymaps = {
   ["<leader>f"] = {
     name = "Telescope",
     b = { "<BS><cmd>Telescope buffers<cr>", "Buffers" },
+    c = { '<BS><cmd>:lua require("plugins.telescope").reload()<cr>', "Config Files" },
     f = { "<BS><cmd>Telescope find_files<cr>", "Files" },
     g = { "<BS><cmd>Telescope live_grep<cr>", "Grep" },
     h = { "<BS><cmd>Telescope help_tags<cr>", "Help tags" },

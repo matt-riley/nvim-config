@@ -30,7 +30,7 @@ local components = {
     text = function(buffer)
       return (buffer.diagnostics.errors ~= 0 and "  " .. buffer.diagnostics.errors)
         or (buffer.diagnostics.warnings ~= 0 and "  " .. buffer.diagnostics.warnings)
-        or ""
+        or " "
     end,
     hl = {
       fg = function(buffer)
@@ -43,18 +43,6 @@ local components = {
   },
   double_space = {
     text = "  ",
-  },
-  left_corner = {
-    text = "",
-    fg = colours.tab_bg,
-    bg = colours.normal_bg,
-  },
-  right_corner = {
-    text = "",
-    fg = function(buffer)
-      return buffer.is_focused and "#658594"
-    end,
-    bg = colours.normal_bg,
   },
   filename = {
     text = function(buffer)
