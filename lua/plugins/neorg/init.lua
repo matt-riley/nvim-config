@@ -24,6 +24,7 @@ M.config = function()
           engine = "nvim-cmp",
         },
       },
+      ["core.integrations.telescope"] = {},
     },
   })
 end

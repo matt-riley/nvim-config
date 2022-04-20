@@ -158,6 +158,7 @@ M.load_plugins = function()
     "jvgrootveld/telescope-zoxide", -- An extension for telescope.nvim that allows you operate zoxide within Neovim.
   })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
+
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
@@ -245,6 +246,7 @@ M.load_plugins = function()
   use({
     "nvim-neorg/neorg",
     config = require("plugins.neorg").config(),
+    requires = { "nvim-neorg/neorg-telescope" },
   })
 
   -- Others

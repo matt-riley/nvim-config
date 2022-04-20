@@ -20,7 +20,7 @@ M.config = function()
         luasnip.lsp_expand(args.body)
       end,
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ["<C-k>"] = cmp.mapping(function()
         if cmp.visible() then
           cmp.select_prev_item()
@@ -43,7 +43,7 @@ M.config = function()
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       }),
-    },
+    }),
     sources = {
       { name = "nvim_lsp" },
       { name = "cmp_tabnine" },

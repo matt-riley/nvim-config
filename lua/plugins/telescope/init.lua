@@ -83,6 +83,7 @@ M.config = function()
   pcall(require("telescope").load_extension, "projects")
   pcall(require("telescope").load_extension, "zoxide")
   pcall(require("telescope").load_extension, "ui-select")
+  pcall(require("telescope").load_extension, "command_center")
 end
 
 M.reload = function()
