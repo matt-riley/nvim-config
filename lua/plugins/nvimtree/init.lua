@@ -46,25 +46,25 @@ M.config = function()
       open_file = {
         quit_on_open = true,
         window_picker = {
-          enabled = true,
+          enable = true,
         },
       },
     },
     disable_netrw = true,
     diagnostics = {
-      enabled = true,
+      enable = true,
       icons = { hint = "", info = "", warning = "", error = "" },
     },
-    filters = { custom = { ".git" } },
+    -- filters = { custom = { ".git" } },
     ignore_ft_on_setup = { "alpha", "startify", "dashboard" },
     open_on_setup = false,
     renderer = {
       indent_markers = {
-        enabled = true,
+        enable = true,
       },
     },
     update_cwd = true,
-    update_focused_file = { enabled = true, update_cwd = true },
+    update_focused_file = { enable = true, update_cwd = true },
     view = { side = "right", width = 30 },
   })
 end

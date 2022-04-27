@@ -23,6 +23,7 @@ M.setup = function()
         b.formatting.golines.with({
           args = { "-m", "80", "--chain-split-dots", "-t", "2" },
         }),
+        b.formatting.goimports,
         b.formatting.prettier,
         b.formatting.rufo,
         b.formatting.scalafmt,

@@ -12,7 +12,7 @@ M.config = function()
 end
 
 M.keymaps = {
-  ["<leader>n"] = {
+  ["<leader>p"] = {
     name = "Package Info",
     d = {
       "<cmd>lua require('package-info').delete()<cr>",

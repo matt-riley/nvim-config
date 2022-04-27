@@ -10,6 +10,8 @@ local snippet = s({
 }, {
   t("local has_"),
   i(1),
+  t(", "),
+  r(1),
   t(" = pcall(require, '"),
   r(1),
   t({ "')", "", "if not has_" }),

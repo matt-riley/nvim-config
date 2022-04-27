@@ -25,6 +25,8 @@ M.config = function()
         },
       },
       ["core.integrations.telescope"] = {},
+      ["core.norg.qol.toc"] = {},
+      ["core.export"] = {},
     },
   })
 end

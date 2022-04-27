@@ -6,11 +6,13 @@ M.install_packer = function()
   local directory = string.format("%s/site/pack/packer/start/", fn.stdpath("data"))
   fn.mkdir(directory, "p")
   local output = fn.system(
-    (string.format(
+    (
+    string.format(
       "git clone --depth 1 %s %s",
       "https://github.com/wbthomason/packer.nvim",
       directory .. "/packer.nvim"
-    ))
+    )
+    )
   )
   print(output)
   print("Installing Packer")
@@ -309,6 +311,7 @@ M.load_plugins = function()
       "MunifTanjim/nui.nvim",
     },
   })
+
   --  theme
 
   use({
