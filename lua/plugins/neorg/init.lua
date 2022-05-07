@@ -31,4 +31,11 @@ M.config = function()
   })
 end
 
+M.keymaps = {
+  ["<leader>n"] = {
+    name = "Neorg",
+    s = { ":NeorgStart<CR>", "Start Neorg" },
+  },
+}
+
 return M

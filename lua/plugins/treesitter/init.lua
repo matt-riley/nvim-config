@@ -141,8 +141,8 @@ M.config = function()
       lsp_interop = {
         enable = true,
         peek_definition_code = {
-          ["df"] = "@function.outer",
-          ["dF"] = "@class.outer",
+          ["<leader>td"] = "@function.outer",
+          ["<leader>tD"] = "@class.outer",
         },
       },
     },

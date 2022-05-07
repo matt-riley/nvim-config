@@ -6,6 +6,7 @@ local gitsigns_mappings = require("plugins.gitsigns").keymaps
 local hlslens_mappings = require("plugins.hlslens").keymaps
 local lsp_mappings = require("lsp.mappings")
 local neogen_mappings = require("plugins.neogen").keymaps
+local neorg = require("plugins.neorg").keymaps
 local nvimtree_mappings = require("plugins.nvimtree").keymaps
 local package_info = require("plugins.package-info").keymaps
 local telescope_mappings = require("plugins.telescope").keymaps
@@ -26,6 +27,7 @@ local has_mappings, wk_mappings = pcall(
   hlslens_mappings,
   lsp_mappings,
   neogen_mappings,
+  neorg,
   nvimtree_mappings,
   package_info,
   telescope_mappings,

@@ -7,17 +7,55 @@ M.config = function()
   if not has_cmp or not has_luasnip then
     return
   end
-  local lspkind = require("lspkind")
+
+  local kind_icons = {
+    Text = "",
+    Method = "m",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "",
+    Interface = "",
+    Module = "",
+    Property = "",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+  }
+
   local autopairs = require("nvim-autopairs.completion.cmp")
   cmp.setup({
-    formatting = {
-      format = lspkind.cmp_format({
-        mode = "symbol", -- show only symbol annotations
-      }),
+    completion = {
+      completeopt = "menu,menuone,noinsert",
     },
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
+    exprimental = {
+      native_menu = false,
+      ghost_text = false,
+    },
+    formatting = {
+      fields = { "kind", "abbr", "menu" },
+      format = function(entry, vim_item)
+        vim_item.kind = kind_icons[vim_item.kind] or ""
+        vim_item.menu = ({
+          buffer = "[Buffer]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
+          nvim_lua = "[Lua]",
+        })[entry.source.name] or "[]"
+        return vim_item
       end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -44,18 +82,35 @@ M.config = function()
         select = true,
       }),
     }),
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
     sources = {
       { name = "nvim_lsp" },
-      { name = "cmp_tabnine" },
-      { name = "path" },
-      { name = "buffer" },
-      { name = "orgmode" },
       { name = "nvim_lua" },
       { name = "luasnip" },
+      { name = "buffer", max_item_count = 3 },
+      { name = "path" },
+      { name = "orgmode" },
+      { name = "cmp_tabnine" },
+      { name = "nvim_lsp_singature_help" },
+    },
+    window = {
+      completion = {
+        border = nil,
+      },
     },
   })
 
+  cmp.setup.cmdline("/", {
+    view = {
+      entries = "custom",
+    },
+  })
   cmp.event:on("confirm_done", autopairs.on_confirm_done())
   require("cmp_nvim_lsp").setup()
 end
+
 return M

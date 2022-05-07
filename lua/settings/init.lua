@@ -23,7 +23,6 @@ M.defaults = function()
     backup = true,
     breakindent = true,
     clipboard = "unnamedplus",
-    completeopt = "menu,menuone,noselect",
     cursorline = true,
     encoding = "UTF-8",
     expandtab = true,

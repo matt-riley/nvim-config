@@ -95,6 +95,9 @@ M.load_plugins = function()
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
   })
   use({
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+  })
+  use({
     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
   })
   use({
@@ -113,10 +116,6 @@ M.load_plugins = function()
   use({
     "windwp/nvim-autopairs",
     config = require("plugins.autopairs").config(),
-  })
-
-  use({
-    "onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
   })
 
   use({
@@ -312,11 +311,19 @@ M.load_plugins = function()
     },
   })
 
+  use({
+    "akinsho/git-conflict.nvim", -- Description of plugin
+    config = require("plugins.git-conflict").config(),
+  })
   --  theme
 
   use({
     "rebelot/kanagawa.nvim",
-    config = require("plugins.kanagawa").config(),
+    -- config = require("plugins.kanagawa").config(),
+  })
+  use({
+    "rmehri01/onenord.nvim", -- 🏔️ A Neovim theme that combines the Nord and Atom One Dark color palettes for a more vibrant programming experience.
+    config = require("onenord").setup(),
   })
 
   -- Keep things up to date

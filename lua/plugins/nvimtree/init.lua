@@ -55,7 +55,6 @@ M.config = function()
       enable = true,
       icons = { hint = "", info = "", warning = "", error = "" },
     },
-    -- filters = { custom = { ".git" } },
     ignore_ft_on_setup = { "alpha", "startify", "dashboard" },
     open_on_setup = false,
     renderer = {
