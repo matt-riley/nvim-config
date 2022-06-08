@@ -1,19 +1,7 @@
-local kanagawa = require("kanagawa.colors").setup()
+local theme = require("onenord.colors").load()
 local colours = {}
-colours.theme = {
-  orange = kanagawa.roninYellow,
-  blue = kanagawa.dragonBlue,
-  red = kanagawa.peachRed,
-  black = kanagawa.sumiInk3,
-  white = kanagawa.fujiWhite,
-  yellow = kanagawa.autumnYellow,
-  cyan = kanagawa.waveAqua2,
-  skyblue = kanagawa.springBlue,
-  purple = kanagawa.oniViolet,
-  magenta = kanagawa.sakuraPink,
-  green = kanagawa.autumnGreen,
-  grey = kanagawa.oldWhite,
-}
+
+colours.theme = theme
 colours.vi_mode = {
   NORMAL = colours.theme.green,
   OP = colours.theme.green,

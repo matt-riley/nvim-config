@@ -1,5 +1,6 @@
 local vi_mode = require("feline.providers.vi_mode")
 local colours = require("plugins.feline.colours").theme
+local main_text = colours.black or colours.gray
 local components = {
   active = { {}, {}, {} },
   inactive = {},
@@ -23,7 +24,7 @@ components.active[1][2] = {
   end,
   hl = function()
     return {
-      fg = colours.black,
+      fg = main_text,
       bg = vi_mode.get_mode_color(),
       style = "bold",
     }
@@ -35,7 +36,7 @@ components.active[1][2] = {
 components.active[1][3] = {
   provider = "file_info",
   hl = {
-    fg = colours.black,
+    fg = main_text,
     style = "bold",
     bg = colours.yellow,
   },
@@ -46,14 +47,14 @@ components.active[1][3] = {
 components.active[2][1] = {
   provider = "lsp_client_names",
   hl = {
-    fg = colours.black,
+    fg = colours.black or colours.fg,
     style = "bold",
-    bg = colours.skyblue,
+    bg = colours.skyblue or colours.dark_blue,
   },
   icon = {
     str = "   ",
     hl = {
-      fg = colours.black,
+      fg = colours.black or colours.fg,
     },
   },
   left_sep = "",
@@ -65,7 +66,7 @@ components.active[3][1] = {
   hl = {
     bg = colours.red,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -77,7 +78,7 @@ components.active[3][2] = {
   hl = {
     bg = colours.yellow,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -88,7 +89,7 @@ components.active[3][3] = {
   hl = {
     bg = colours.cyan,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -99,7 +100,7 @@ components.active[3][4] = {
   hl = {
     bg = colours.skyblue,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -110,7 +111,7 @@ components.active[3][5] = {
   hl = {
     bg = colours.green,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   icon = " ",
   left_sep = "",
@@ -122,7 +123,7 @@ components.active[3][6] = {
   hl = {
     bg = colours.green,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -133,7 +134,7 @@ components.active[3][7] = {
   hl = {
     bg = colours.orange,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -143,7 +144,7 @@ components.active[3][8] = {
   hl = {
     bg = colours.red,
     style = "bold",
-    fg = colours.black,
+    fg = main_text,
   },
   left_sep = "",
   right_sep = " ",
@@ -152,7 +153,7 @@ components.active[3][8] = {
 --[[ components.active[3][9] = {
   provider = "position",
   hl = {
-    fg = colours.black,
+    fg = main_text,
     bg = colours.purple,
     style = "bold",
   },

@@ -79,11 +79,13 @@ M.config = function()
   })
 
   -- Extensions
+  pcall(require("telescope").load_extension, "env")
   pcall(require("telescope").load_extension, "fzf")
   pcall(require("telescope").load_extension, "projects")
   pcall(require("telescope").load_extension, "zoxide")
   pcall(require("telescope").load_extension, "ui-select")
   pcall(require("telescope").load_extension, "command_center")
+  pcall(require("telescope").load_extension, "yaml_schema")
 end
 
 M.reload = function()
@@ -118,6 +120,7 @@ M.keymaps = {
     name = "Telescope",
     b = { "<BS><cmd>Telescope buffers<cr>", "Buffers" },
     c = { '<BS><cmd>:lua require("plugins.telescope").reload()<cr>', "Config Files" },
+    e = { "<cmd>Telescope env<cr>", "ENV VARS" },
     f = { "<BS><cmd>Telescope find_files<cr>", "Files" },
     g = { "<BS><cmd>Telescope live_grep<cr>", "Grep" },
     h = { "<BS><cmd>Telescope help_tags<cr>", "Help tags" },

@@ -50,6 +50,7 @@ M.config = function()
       "gowork",
       "graphql",
       "html",
+      "hcl",
       "javascript",
       "jsdoc",
       "json",

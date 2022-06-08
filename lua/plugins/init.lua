@@ -27,6 +27,7 @@ M.load_plugins = function()
   end
 
   local config = {
+    max_jobs = 10,
     display = {
       open_fn = function()
         return require("packer.util").float({ border = "rounded" })
@@ -98,13 +99,14 @@ M.load_plugins = function()
     "hrsh7th/cmp-nvim-lsp-signature-help",
   })
   use({
+    "hrsh7th/cmp-cmdline",
+  })
+
+  use({
     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
   })
   use({
     "L3MON4D3/LuaSnip", -- Snippets Plugin
-    requires = {
-      "rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
-    },
     config = require("plugins.luasnip").config(),
   })
   use({
@@ -133,8 +135,23 @@ M.load_plugins = function()
   })
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" }) -- Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.
 
+  -- use({
+  --   "github/copilot.vim",
+  -- })
+
   use({
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  })
+
+  use({
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua", "nvim-cmp" },
   })
 
   use({
@@ -160,10 +177,19 @@ M.load_plugins = function()
   })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
 
+  use({
+    "someone-stole-my-name/yaml-companion.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+  })
+
+  use({ "LinArcX/telescope-env.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
+
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
-    run = ":TSUpdate",
     config = require("plugins.treesitter").config(),
   })
   use({ "nvim-treesitter/nvim-treesitter-refactor" }) -- Refactor module for nvim-treesitter
@@ -179,6 +205,7 @@ M.load_plugins = function()
   })
   use({ "nvim-treesitter/playground" })
   use({ "p00f/nvim-ts-rainbow" })
+
   --  UI stuff
   use({
     "lewis6991/gitsigns.nvim", -- Git signs written in pure lua
@@ -218,19 +245,8 @@ M.load_plugins = function()
   })
 
   use({
-    "lukas-reineke/headlines.nvim",
-    config = require("plugins.headlines").config(),
-  })
-
-  use({
     "anuvyklack/pretty-fold.nvim", -- Foldtext customization and folded region preview in Neovim.
     config = require("plugins.pretty-fold").config(),
-  })
-
-  use({
-    "narutoxy/dim.lua", -- Dim unused words in neovim
-    requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
-    config = require("plugins.dim").config(),
   })
 
   use({
@@ -239,8 +255,8 @@ M.load_plugins = function()
   })
 
   use({
-    "karb94/neoscroll.nvim", -- Smooth scrolling neovim plugin written in lua
-    config = require("plugins.neoscroll").config(),
+    "declancm/cinnamon.nvim", -- Smooth scrolling for ANY movement command 🤯. A Neovim plugin written in Lua!
+    config = require("plugins.cinnamon").config(),
   })
 
   -- Neorg
@@ -302,19 +318,6 @@ M.load_plugins = function()
   use({ "dstein64/vim-startuptime" })
   use({ "lewis6991/impatient.nvim" })
 
-  use({
-    "bennypowers/nvim-regexplainer",
-    config = require("plugins.regexplainer").config(),
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-  })
-
-  use({
-    "akinsho/git-conflict.nvim", -- Description of plugin
-    config = require("plugins.git-conflict").config(),
-  })
   --  theme
 
   use({
@@ -323,7 +326,7 @@ M.load_plugins = function()
   })
   use({
     "rmehri01/onenord.nvim", -- 🏔️ A Neovim theme that combines the Nord and Atom One Dark color palettes for a more vibrant programming experience.
-    config = require("onenord").setup(),
+    config = require("plugins.onenord").config(),
   })
 
   -- Keep things up to date

@@ -4,7 +4,7 @@ local s = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
 
-local snippets = {
+return {
   s("rdm", {
     t("!["),
     i(1),
@@ -35,5 +35,3 @@ local snippets = {
     i(7, "Explain how to run the automated tests for this system"),
   }),
 }
-
-return ls.add_snippets("markdown", snippets)

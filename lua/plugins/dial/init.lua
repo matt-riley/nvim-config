@@ -11,13 +11,13 @@ M.config = function()
 
   config.augends:register_group({
     default = {
-      augend.integer.alias.decimal,
+      augend.integer.alias.decimal_int,
       augend.integer.alias.hex,
       augend.date.alias["%Y/%m/%d"],
-      augend.date.alias["%Y-%m-%d"],
+      augend.date.alias["%d/%m/%Y"],
       augend.date.alias["%m/%d"],
+      augend.date.alias["%d/%m"],
       augend.date.alias["%H:%M"],
-      augend.constant.alias.ja_weekday_full,
       augend.constant.alias.bool,
     },
   })

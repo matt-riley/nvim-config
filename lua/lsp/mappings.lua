@@ -3,15 +3,15 @@ local lsp_mappings = {
     c = {
       name = "LSP - Code",
       a = {
-        "<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
+        "<cmd>Lspsaga code_action<CR>",
         "Code Action",
       },
       c = {
-        "<cmd>lua require('lspsaga.diagnostic').show_cursor_diagnostics()<CR>",
+        "<cmd>Lspsaga show_cursor_diagnostics<CR>",
         "Cursor Diagnostics",
       },
       l = {
-        "<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>",
+        "<cmd>Lspsaga show_line_diagnostics<CR>",
         "Line Diagnostics",
       },
     },
@@ -20,7 +20,7 @@ local lsp_mappings = {
       name = "Telescope",
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
       d = {
-        ":lua require('telescope').extensions.zoxide.list()<cr>",
+        "<cmd>Telescope zoxide list<cr>",
         "Directories",
       },
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -31,27 +31,27 @@ local lsp_mappings = {
         "Media files",
       },
     },
-    r = { n = { "<cmd>lua require('lspsaga.rename').rename()<CR>", "Rename" } },
+    r = { n = { "<cmd>Lspsaga rename<CR>", "Rename" } },
   },
   K = {
-    "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
+    "<cmd>Lspsaga hover_doc<CR>",
     "Hover Docs",
   },
   ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
   ["gh"] = {
-    "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>",
+    "<cmd>Lspsaga lsp_finder<CR>",
     "References",
   },
   ["gs"] = {
-    "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+    "<cmd>Lspsaga signature_help<CR>",
     "Signature",
   },
   ["[e"] = {
-    "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>",
+    "<cmd>Lspsaga diagnostic_jump_prev<CR>",
     "Previous Diagnostics",
   },
   ["]e"] = {
-    "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>",
+    "<cmd>Lspsaga diagnostic_jump_next<CR>",
     "Next Diagnostics",
   },
 }

@@ -21,9 +21,11 @@ M.config = function()
     },
   })
 
-  require("plugins.luasnip.snippets.lua")
-  require("plugins.luasnip.snippets.markdown")
-  require("plugins.luasnip.snippets.typescript")
+  local conf_dir = vim.fn.stdpath("config")
+
+  require("luasnip.loaders.from_lua").load({
+    paths = conf_dir .. "/lua/plugins/luasnip/snippets",
+  })
 
   vim.keymap.set({ "i", "s" }, "<C-l>", function()
     if luasnip.choice_active() then
