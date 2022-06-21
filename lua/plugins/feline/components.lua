@@ -1,6 +1,6 @@
 local vi_mode = require("feline.providers.vi_mode")
 local colours = require("plugins.feline.colours").theme
-local main_text = colours.black or colours.gray
+local main_text = colours.base or colours.black or colours.gray
 local components = {
   active = { {}, {}, {} },
   inactive = {},
@@ -24,7 +24,7 @@ components.active[1][2] = {
   end,
   hl = function()
     return {
-      fg = main_text,
+      fg = colours.base,
       bg = vi_mode.get_mode_color(),
       style = "bold",
     }
@@ -36,9 +36,9 @@ components.active[1][2] = {
 components.active[1][3] = {
   provider = "file_info",
   hl = {
-    fg = main_text,
+    fg = colours.base,
     style = "bold",
-    bg = colours.yellow,
+    bg = colours.gold,
   },
   left_sep = " ",
   right_sep = "",
@@ -47,14 +47,14 @@ components.active[1][3] = {
 components.active[2][1] = {
   provider = "lsp_client_names",
   hl = {
-    fg = colours.black or colours.fg,
+    fg = colours.base or colours.black or colours.fg,
     style = "bold",
-    bg = colours.skyblue or colours.dark_blue,
+    bg = colours.pine or colours.skyblue or colours.dark_blue,
   },
   icon = {
     str = "   ",
     hl = {
-      fg = colours.black or colours.fg,
+      fg = colours.base or colours.black or colours.fg,
     },
   },
   left_sep = "",
@@ -64,7 +64,7 @@ components.active[2][1] = {
 components.active[3][1] = {
   provider = "diagnostic_errors",
   hl = {
-    bg = colours.red,
+    bg = colours.love,
     style = "bold",
     fg = main_text,
   },
@@ -76,7 +76,7 @@ components.active[3][1] = {
 components.active[3][2] = {
   provider = "diagnostic_warnings",
   hl = {
-    bg = colours.yellow,
+    bg = colours.gold,
     style = "bold",
     fg = main_text,
   },
@@ -87,7 +87,7 @@ components.active[3][2] = {
 components.active[3][3] = {
   provider = "diagnostic_hints",
   hl = {
-    bg = colours.cyan,
+    bg = colours.iris,
     style = "bold",
     fg = main_text,
   },
@@ -98,7 +98,7 @@ components.active[3][3] = {
 components.active[3][4] = {
   provider = "diagnostic_info",
   hl = {
-    bg = colours.skyblue,
+    bg = colours.foam,
     style = "bold",
     fg = main_text,
   },
@@ -109,7 +109,7 @@ components.active[3][4] = {
 components.active[3][5] = {
   provider = "git_branch",
   hl = {
-    bg = colours.green,
+    bg = colours.foam,
     style = "bold",
     fg = main_text,
   },
@@ -121,7 +121,7 @@ components.active[3][5] = {
 components.active[3][6] = {
   provider = "git_diff_added",
   hl = {
-    bg = colours.green,
+    bg = colours.foam,
     style = "bold",
     fg = main_text,
   },
@@ -132,7 +132,7 @@ components.active[3][6] = {
 components.active[3][7] = {
   provider = "git_diff_changed",
   hl = {
-    bg = colours.orange,
+    bg = colours.rose,
     style = "bold",
     fg = main_text,
   },
@@ -142,7 +142,7 @@ components.active[3][7] = {
 components.active[3][8] = {
   provider = "git_diff_removed",
   hl = {
-    bg = colours.red,
+    bg = colours.love,
     style = "bold",
     fg = main_text,
   },

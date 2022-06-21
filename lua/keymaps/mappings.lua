@@ -1,5 +1,6 @@
 local cokeline_mappings = require("plugins.cokeline").keymaps
 local colorizer_mappings = require("plugins.colorizer").keymaps
+local dap_mappings = require("plugins.dap").keymaps
 local dial_mappings = require("plugins.dial").keymaps
 local focus_mappings = require("plugins.focus").keymaps
 local gitsigns_mappings = require("plugins.gitsigns").keymaps
@@ -21,6 +22,7 @@ local has_mappings, wk_mappings = pcall(
   "error",
   cokeline_mappings,
   colorizer_mappings,
+  dap_mappings,
   dial_mappings,
   focus_mappings,
   gitsigns_mappings,

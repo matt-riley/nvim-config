@@ -135,6 +135,7 @@ M.load_plugins = function()
   })
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" }) -- Utilities to improve the TypeScript development experience for Neovim's built-in LSP client.
 
+  -- Uncomment when first time setup, lua version does not do the auth, yet
   -- use({
   --   "github/copilot.vim",
   -- })
@@ -158,6 +159,22 @@ M.load_plugins = function()
     "tzachar/cmp-tabnine",
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
+  })
+
+  -- Debugging stuff
+  use({
+    "mfussenegger/nvim-dap",
+    config = require("plugins.dap").config(),
+  })
+
+  use({
+    "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap",
+  })
+
+  use({
+    "leoluz/nvim-dap-go",
+    config = require("dap-go").setup(),
   })
 
   -- Telescope
@@ -186,6 +203,10 @@ M.load_plugins = function()
   })
 
   use({ "LinArcX/telescope-env.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
+
+  use({
+    "nvim-telescope/telescope-dap.nvim",
+  })
 
   -- TreeSitter
   use({
@@ -266,6 +287,16 @@ M.load_plugins = function()
     requires = { "nvim-neorg/neorg-telescope" },
   })
 
+  -- Testing
+  --[[ use({
+    "rcarriga/neotest", -- An extensible framework for interacting with tests within NeoVim.
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+    },
+  }) ]]
+
   -- Others
   use({
     "goolord/alpha-nvim", -- a lua powered greeter like vim-startify / dashboard-nvim
@@ -322,11 +353,18 @@ M.load_plugins = function()
 
   use({
     "rebelot/kanagawa.nvim",
-    -- config = require("plugins.kanagawa").config(),
+    config = require("plugins.kanagawa").config(),
   })
   use({
     "rmehri01/onenord.nvim", -- 🏔️ A Neovim theme that combines the Nord and Atom One Dark color palettes for a more vibrant programming experience.
     config = require("plugins.onenord").config(),
+  })
+
+  use({
+    "rose-pine/neovim",
+    as = "rose-pine",
+    tag = "v1.*",
+    config = require("plugins.rosepine").config(),
   })
 
   -- Keep things up to date

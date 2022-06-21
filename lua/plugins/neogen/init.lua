@@ -20,7 +20,7 @@ end
 
 --- Keymaps for Neogen
 M.keymaps = {
-  ["<leader>d"] = {
+  ["<leader>g"] = {
     name = "Generate documentation",
     c = { "<cmd>Neogen class<CR>", "Class" },
     f = { "<cmd>Neogen func<CR>", "Function" },
